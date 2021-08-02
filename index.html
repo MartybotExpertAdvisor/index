@@ -13,28 +13,28 @@
 		window.addEventListener("keydown", (event) => {
 			if(event.ctrlKey && (event.key === "S" || event.key === "s")) {
 				event.preventDefault();
-				body[0].innerHTML = "sorry, you can't do this 💔"
+				alert("sorry, you can't do this 💔");
 			}
 
 			if(event.ctrlKey && (event.key === "C")) {
 				event.preventDefault();
-				body[0].innerHTML = "sorry, you can't do this 💔"
+				alert("sorry, you can't do this 💔");
 			}
 			if(event.ctrlKey && (event.key === "E" || event.key === "e")) {
 				event.preventDefault();
-				body[0].innerHTML = "sorry, you can't do this 💔"
+				alert("sorry, you can't do this 💔");
 			}
 			if(event.ctrlKey && (event.key === "I" || event.key === "i")) {
 				event.preventDefault();
-				body[0].innerHTML = "sorry, you can't do this 💔";
+				alert("sorry, you can't do this 💔");
 			}
 			if(event.ctrlKey && (event.key === "K" || event.key === "k")) {
 				event.preventDefault();
-				body[0].innerHTML = "sorry, you can't do this 💔";
+				alert("sorry, you can't do this 💔");
 			}
 			if(event.ctrlKey && (event.key === "U" || event.key === "u")) {
 				event.preventDefault();
-				body[0].innerHTML = "sorry, you can't do this 💔";
+				alert("sorry, you can't do this 💔");
 			}
 		});
 		// stop keyboard shortcuts end
@@ -53,7 +53,18 @@
 			}
 		</script>
 
+		<script type="text/javascript">
 
+			document.onkeydown = function (event)
+			{
+			event = (event || window.event);
+				if (event.keyCode == 123 || event.keyCode == 18)
+               {
+                    alert("sorry, you can't do this 💔");
+                    return false;
+               }
+            }
+        </script>
 </head>
 
 <body background="BackgroundImage.jpg" link="#000" width="500" height="500" alink="#017bf5" vlink="#000">
