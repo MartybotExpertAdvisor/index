@@ -5,7 +5,47 @@
 	<title>
 		MaRtYbOt Expert Advisor -- WebSite
 	</title>
+	
+		<script>
+		// take body to change the content
+		const body = document.getElementsByTagName('body');
+// stop keyboard shortcuts
+window.addEventListener("keydown", (event) => {
+  if(event.ctrlKey && (event.key === "S" || event.key === "s")) {
+     event.preventDefault();
+     body[0].innerHTML = "sorry, you can't do this 💔"
+  }
+
+  if(event.ctrlKey && (event.key === "C")) {
+     event.preventDefault();
+     body[0].innerHTML = "sorry, you can't do this 💔"
+  }
+  if(event.ctrlKey && (event.key === "E" || event.key === "e")) {
+     event.preventDefault();
+     body[0].innerHTML = "sorry, you can't do this 💔"
+  }
+  if(event.ctrlKey && (event.key === "I" || event.key === "i")) {
+     event.preventDefault();
+     body[0].innerHTML = "sorry, you can't do this 💔";
+  }
+  if(event.ctrlKey && (event.key === "K" || event.key === "k")) {
+     event.preventDefault();
+     body[0].innerHTML = "sorry, you can't do this 💔";
+  }
+  if(event.ctrlKey && (event.key === "U" || event.key === "u")) {
+     event.preventDefault();
+     body[0].innerHTML = "sorry, you can't do this 💔";
+  }
+});
+// stop right click
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+</script>
+
+
 </head>
+
 <body background="BackgroundImage.jpg" link="#000" width="500" height="500" alink="#017bf5" vlink="#000">
 	
 	<br />
@@ -32,7 +72,7 @@
 	</h1>
 	<h3 align="center">
 		<font face="Lato" color="#ff8c00" size="5">
-			HTML ONLY
+			--Under Construction--
 		</font>
 	</h3>
 	<br />
