@@ -39,14 +39,18 @@
 		});
 		// stop keyboard shortcuts end
 		// stop right click and F12
-			document.addEventListener('contextmenu', function(e) {
-			e.preventDefault();
+			if (document.addEventListener) {
+				document.addEventListener('contextmenu', function(e) {
+				alert("sorry, you can't do this 💔");
+				e.preventDefault();
+				}, false);
 			}
 			else {
-			document.attachEvent('oncontextmenu', function() {
-			alert("You Can not Do This!");
-			window.event.returnValue = false;
-			});
+				document.attachEvent('oncontextmenu', function() {
+				alert("sorry, you can't do this 💔");
+				window.event.returnValue = false;
+				});
+			}
 		</script>
 
 
@@ -64,7 +68,8 @@
 		<font face="cinzel" size="4">
 			<a href="#">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="#">VIDEOS</a>&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="#">PORTFOLIO</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- <a href="#">PORTFOLIO</a>&nbsp;&nbsp;&nbsp;&nbsp;-->
+			<a href="https://www.myfxbook.com/members/MrLuckyTradeMax/basic-martybot-ver-395/8296824/woMzmkJqX8MY0n6U8dqu">PORTFOLIO</a>&nbsp;&nbsp;&nbsp;&nbsp;
 			<!-- <a href="#">CONTACT US</a> -->
 			<!--<a href="https://martybotexpertadvisor.github.io/contacttelegram/">CONTACT US</a> -->
 			<a href="contact-us.html">CONTACT US</a>
