@@ -1,3 +1,14 @@
+body,
+html {
+	min-height:50%;
+	}
+body {
+	background-image:url(../image/BackgroundImage.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
 .accordion {
   max-width: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
