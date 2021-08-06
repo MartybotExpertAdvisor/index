@@ -11,8 +11,7 @@ html {
     grid-template-columns: 2% 48% 48% 2%;
     grid-template-areas: 
         ". navigationbar navigationbar ."
-        ". home . ."
-        ". header header ."
+        ". home home ."
         ". version . ."
         ". analysis analysis ."
         ". video video ."
@@ -53,6 +52,7 @@ html {
     align-self: center;
     list-style: none;
 }
+
 .home {
     grid-area: home;
     position: relative;
@@ -60,15 +60,6 @@ html {
     width: 100%;
     height: 130vh;
     */
-}
-
-.header {
-    grid-area: header;
-    position: relative;
-    justify-content: space-around;
-    padding: 0;
-    margin: 0%;
-    flex-wrap: wrap;
 }
 
 .version {
@@ -94,14 +85,17 @@ html {
 }
 
 /* grid ROW Background color */
-.grid div:nth-child(odd){
+.grid div:nth-child(even){
     background-color: darkslategray;
 }
 
-.grid div:nth-child(even){
+.grid div:nth-child(odd){
     background-color: lightgray;
 }
 
+.grid div:nth-child(2){ /* home */
+    background-color: white;
+}
 .grid div:nth-child(3){ 
     background-color: white;
 }
@@ -121,6 +115,7 @@ h1  {
     font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif; 
     justify-self: left;
+    margin-left: 10px;
     }
 
 @media screen and (min-width: 736px) {
@@ -130,10 +125,9 @@ h1  {
         grid-template-columns: 2% 48% 48% 2%;
         grid-template-areas: 
         ". navigationbar navigationbar ."
-        ". home . ."
-        ". header . ."
-        ". version version  ."
-        ". analysis video  ."
+        ". home home ."
+        ". version analysis  ."
+        ". video video  ."
         ". contact contact ."
         ;
         align-self: center;
