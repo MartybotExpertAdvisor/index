@@ -12,7 +12,7 @@ html {
     grid-template-areas: 
         ". navigationbar navigationbar ."
         ". home home ."
-        ". version . ."
+        ". version version ."
         ". analysis analysis ."
         ". video video ."
         ". contact contact ."
