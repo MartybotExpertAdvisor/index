@@ -1,0 +1,164 @@
+html {
+    scroll-behavior: smooth;
+}
+* { margin: 0;
+    padding: 0;
+}
+
+/* mobile version */
+.grid{
+    display: grid;
+    grid-template-columns: 2% 48% 48% 2%;
+    grid-template-areas: 
+        ". navigationbar navigationbar ."
+        ". home . ."
+        ". header header ."
+        ". version . ."
+        ". analysis analysis ."
+        ". video video ."
+        ". contact contact ."
+    ;
+    align-self: center;
+    grid-gap: 5px;
+
+}
+
+.navigationbar {
+    position: fixed;
+    grid-area: navigationbar;
+    height: 140px;
+    align-self: center;
+    background-image: url(../zzz-image/BackgroundImage-visitor.jpg);
+    width: 100%;
+    height: 38vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.logo {
+    margin-left: 5%;
+    font-weight: bold;
+    font-size: 30px;
+    font-style: normal;
+    color: darkblue;
+    align-self: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav {
+    margin-left: 10%;
+    font-weight: bold;
+    font-size: 15px;
+    align-self: center;
+    list-style: none;
+}
+.home {
+    grid-area: home;
+    position: relative;
+    /* background-image: url(../zzz-image/EA-robot-image.png);
+    width: 100%;
+    height: 130vh;
+    */
+}
+
+.header {
+    grid-area: header;
+    position: relative;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0%;
+    flex-wrap: wrap;
+}
+
+.version {
+    grid-area: version;
+    position: relative;
+    justify-self: center;
+}
+
+.analysis {
+    grid-area: analysis;
+    position: relative;
+    justify-self: left;
+}
+
+.video {
+    grid-area: video;
+    position: relative;
+    justify-self: center;
+}
+
+.contact {
+    grid-area: contact;
+}
+
+/* grid ROW Background color */
+.grid div:nth-child(odd){
+    background-color: darkslategray;
+}
+
+.grid div:nth-child(even){
+    background-color: lightgray;
+}
+
+.grid div:nth-child(3){ 
+    background-color: white;
+}
+
+.grid div:nth-child(4){
+    background-color: white;
+}
+
+.grid div:nth-child(5){  /* Performance */
+    background-color: white;
+}
+.grid div:nth-child(6){  /* Video */
+    background-color: white;
+}
+/* Font styling*/
+h1  {
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+    justify-self: left;
+    }
+
+@media screen and (min-width: 736px) {
+    .grid{
+        /* 5%  45% 45% 5% = means we have 4 frames occupying certain percentage of screen*/
+        display: grid;
+        grid-template-columns: 2% 48% 48% 2%;
+        grid-template-areas: 
+        ". navigationbar navigationbar ."
+        ". home . ."
+        ". header . ."
+        ". version version  ."
+        ". analysis video  ."
+        ". contact contact ."
+        ;
+        align-self: center;
+        grid-gap: 5px;
+        
+    }
+
+    .navigationbar {
+        position: fixed;
+        grid-area: navigationbar;
+        height: 140px;
+        align-self: center;
+        background-image: url(../zzz-image/BackgroundImage-visitor-desktop.jpg);
+        width: 100%;
+        height: 38vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 1;
+    }
+    
+    .analysis {
+        grid-area: analysis;
+        position: relative;
+        justify-self: left;
+        justify-content: bottom;
+    }
+    
+}
