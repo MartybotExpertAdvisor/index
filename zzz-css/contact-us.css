@@ -8,28 +8,48 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/*
+.framecard{
+    display: grid;
+    grid-template-columns: 2% 48% 48% 2%;
+    grid-template-areas: 
+        ". framecard framecard ."
+    ;
+    align-self: center;
+    grid-gap: 5px;
+}
+
+.framecard {
+    grid-area: framecard;
+}
+*/
 body{
     overflow: hidden;
 }
 
-section{
+.framecard{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    width: 540px;
+    height: 390px;
     background: #1c1c25;
+    border-radius: 10px;
 }
 
-section::before{
+/*
+.bordercard::before{ /* Red circle gradient
     content: '';
     position: absolute;
-    bottom: -40%;
-    left: 40%;
-    width: 600px;
-    height: 600px;
+    bottom: 451px;
+    left: 300px;
+    width: 240px;
+    height: 223px;
+    border-bottom-left-radius: 250px;
+    border-top-right-radius: 10px;
     background: linear-gradient(#f00,#f0f);
-    border-radius: 50%;
 }
+*/
 
 .card{
     position: relative;
@@ -64,6 +84,7 @@ section::before{
 .card:hover .face.back{
     transform: rotateY(360deg);
 }
+/*
 .card .face::before{
     content: '';
     position: absolute;
@@ -87,19 +108,49 @@ section::before{
     border-radius: 50%;
     opacity: 0.7;
 }
-
-.card .face.front .debit{
+*/
+.card .face.front .information{
     position: absolute;
-    left: 40px;
-    top: 30px;
+    left: 35%;
+    top: 10px;
+    justify-content: center;
     color: #fff;
     font-weight: 500;
 }
 
-.card .face.front .bank{
+
+.card .face.front .profile-pic{
+    position: absolute;
+    left: 50px;
+    top: 40px;
+    max-width: 90px;
+    border-radius: 8px;
+    border-style: solid;
+    border: solid;
+}
+
+.card .face.front .fxtrader{
+    position: absolute;
+    left: 40px;
+    top: 155px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.card .face.front .ea-id{
+    position: absolute;
+    left: 330px;
+    top: 30px;
+    max-width: 120px;
+    border-style: solid;
+    border: solid;
+    border-radius: 8px;
+}
+
+.card .face.front .ea-name{
     position: absolute;
     right: 40px;
-    top: 25px;
+    top: 170px;
     color: #fff;
     font-weight: 500;
     font-style: italic;
@@ -114,9 +165,22 @@ section::before{
     border-radius: 8px;
 }
 
+.card .face.front .work{
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 6px;
+    font-size: 18px;
+    text-shadow: 0 2px 1px #0005;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/*
 .card .face.front .number{
     position: absolute;
-    bottom: 130px;
+    bottom: 100px;
     left: 40px;
     color: #fff;
     font-weight: 500;
@@ -128,7 +192,7 @@ section::before{
 
 .card .face.front .valid{
     position: absolute;
-    bottom: 90px;
+    bottom: 70px;
     left: 40px;
     display: flex;
     justify-content: center;
@@ -139,7 +203,7 @@ section::before{
     line-height: 1em;
     text-align: right;
 }
-
+*/
 .card .face.front .valid span:last-child{
     margin-left: 20px;
     font-size: 16px;
@@ -149,7 +213,7 @@ section::before{
 
 .card .face.front .cardHolder{
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     left: 40px;
     display: flex;
     justify-content: center;
@@ -227,8 +291,9 @@ section::before{
     bottom: 30px;
     left: 30px;
     right: 30px;
-    color: #fff;
-    font-size: 10px;
-    line-height: 1.4px;
-    font-weight: 300;
+    color: crimson;
+    font-size: 17px;
+    line-height: 5px;
+    font-weight: 600;
 }
+

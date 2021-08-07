@@ -20,7 +20,6 @@ html {
     ;
     align-self: center;
     grid-gap: 5px;
-
 }
 
 .navigationbar {
@@ -81,10 +80,6 @@ html {
     grid-area: video;
     position: relative;
     justify-self: center;
-}
-
-.contact {
-    grid-area: contact;
 }
 
 /* grid ROW Background color */
