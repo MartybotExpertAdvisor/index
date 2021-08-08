@@ -18,61 +18,19 @@
     <div class="grid">
         <div class="navigationbar">
             <a class="logo">AI Robot Fx Trading System</a>
-            <div class="nav">
-                <a href="#home"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Home</a>&nbsp;
-                <a href="#version">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Version</a>
-                <a href="#analysis">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Market Analysis</a>
-                <a href="#video">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Video</a>
-                <a href="https://www.myfxbook.com/members/MrLuckyTradeMax/basic-martybot-ver-395/8296824/woMzmkJqX8MY0n6U8dqu"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Portfolio</a>
-                
-            </div>
-           <div class="nav">
-                <a href="frequentlyaskquestion.html"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>FAQ's </a>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Client Portal</a>
-                <a href="contact-us.html">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Contact us</a>
-            </div>
+            <ul class="nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#version">Version</a></li>
+                <li><a href="#analysis">Market Analysis</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="https://www.myfxbook.com/members/MrLuckyTradeMax/basic-martybot-ver-395/8296824/woMzmkJqX8MY0n6U8dqu"> Portfolio</a></li>
+                <li><a href="frequentlyaskquestion.html"> FAQ's </a></li>
+                <li><a href="contact-us.html">Contact us</a></li>
+            </ul>
         </div>
-        <div class="spacefromnav1">
-            <h1> <br><br><br><br></h1>
-        </div>
+
         <div class="home" id="home">
-        </div>
-        <div class="forex">
+            <h1> <br><br><br><br><br><br><br><br><br><br></h1>
             <h1>What is forex?</h1>
             <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The foreign exchange market, which is usually known as “forex” or “FX,” is the largest financial market in the world.
@@ -102,24 +60,26 @@
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instead, trading just shifts to different financial centers around the world.
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The day starts when traders wake up in Auckland/Wellington, then moves to Sydney, Singapore, Hong Kong, Tokyo, Frankfurt, London, and finally, New York, before trading starts all over again in New Zealand!
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--from Babypips.com--
+                <br><br>
             </p>
 
         </div>
-        <div class="spacefromnav2">
-        </div>
+        
         <div class="version" id="version">
-            <h1>Version 5.27</h1>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1>Version</h1>
             <img src="../../zzz-image/EA-robot-image.png" style="width: 250px; height: 300px;">
+            <br><br>
         </div>
-        <div class="spacefromnav3">
-        </div>  
+           
         <div class="analysis" id="analysis">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <h1>Market Analysis</h1>
-            <img src="../../zzz-image/Monthly-analytics.png" class="analysis">
+            <img src="../../zzz-image/Monthly-analytics.png" style="width: 460px; height: 340px;">
 
         </div>
-        <div class="spacefromnav4">
-        </div>
+        
+        
         <div class="video" id="video">
             <h1>Video</h1>
             <video width="416" height="312" controls>
@@ -129,67 +89,5 @@
             </video>
         </div>
     </div>
-
-    <script>
-		// Disable the rightclick and ctrl and f12 keys to find the source file
-		// take body to change the content
-		const body = document.getElementsByTagName('body');
-		// stop keyboard shortcuts
-		window.addEventListener("keydown", (event) => {
-			if(event.ctrlKey && (event.key === "S" || event.key === "s")) {
-				event.preventDefault();
-				alert("sorry, you can't do this 💔");
-			}
-
-			if(event.ctrlKey && (event.key === "C")) {
-				event.preventDefault();
-				alert("sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "E" || event.key === "e")) {
-				event.preventDefault();
-				alert("sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "I" || event.key === "i")) {
-				event.preventDefault();
-				alert("sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "K" || event.key === "k")) {
-				event.preventDefault();
-				alert("sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "U" || event.key === "u")) {
-				event.preventDefault();
-				alert("sorry, you can't do this 💔");
-			}
-		});
-		// stop keyboard shortcuts end
-		// stop right click 
-			if (document.addEventListener) {
-				document.addEventListener('contextmenu', function(e) {
-				alert("sorry, you can't do this 💔");
-				e.preventDefault();
-				}, false);
-			}
-			else {
-				document.attachEvent('oncontextmenu', function() {
-				alert("sorry, you can't do this 💔");
-				window.event.returnValue = false;
-				});
-			}
-		</script>
-
-		<script type="text/javascript">
-		//disable F12 keys
-			document.onkeydown = function (event)
-			{
-			event = (event || window.event);
-				if (event.keyCode == 123 || event.keyCode == 18)
-               {
-                    alert("sorry, you can't do this 💔");
-                    return false;
-               }
-            }
-			//Javascript ENDS here
-        </script>
 </body>
 </html>
