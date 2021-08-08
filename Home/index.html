@@ -3,16 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Forex Auto Trading SYSTEM -- WebSite
+		Forex Auto Trading SYSTEM -- Official Website
 	</title>
 	
 	<!--Redirect Page -->
-	<noscript><meta http-equiv="refresh" content=0; url="https://marukocharobotto.github.io/index/Home/visitorpage.html"></noscript>
+	<noscript><meta http-equiv="refresh" content="0; url=https://marukocharobotto.github.io/index/Home/visitorpage.html" /></noscript>
 	
 	<SCRIPT language="JavaScript">
-	/*-hide Password protect the html 
+	/*-hide
 	*/
-	var password=prompt('Welcome to our Auto Trading System!!!\nAndroid password: Visitor\nIOs password: N/A\nDesktop password: Visitor','');
+	var password=prompt('Welcome to our Auto Trading System!!!\nDesktop and Android password: Visitor','');
 	var clientpassword="encrypted-huEMoMtGeAyxJtKXSho9wR";
 	var visitorpassword="Visitor";
 		if (clientpassword==password)
@@ -27,6 +27,7 @@
 		else
 		{
 		alert("Oooops!!! Wrong PASSWORD 💔 \nYou will be diverted to Temporary Homepage");
+		history.go(-1);
 		window.location="https://marukocharobotto.github.io/index/Home/incorrectpassword.html";
 		}
 //-->
