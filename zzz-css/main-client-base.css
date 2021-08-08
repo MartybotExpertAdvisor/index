@@ -13,10 +13,9 @@ html {
     grid-template-columns: 2% 48% 48% 2%;
     grid-template-areas: 
         ". navigationbar navigationbar ."
-        ". spacefromnav1 spacefromnav1 ."
+        ". wallpaperspace wallpaperspace ."
         ". home home ."
         ". forex forex ."
-        ". spacefromnav spacefromnav ."
         ". version version ."
         ". analysis analysis ."
         ". video video ."
@@ -157,28 +156,9 @@ a:hover span:nth-child(4){
 }
 /*neo light end*/
 
-.spacefromnav1 {
-    grid-area: spacefromnav1;
+.wallpaperspace {
     position: relative;
-    background-color: white;
-}
-
-.spacefromnav2 {
-    grid-area: spacefromnav1;
-    position: relative;
-    background-color: white;
-}
-
-.spacefromnav3 {
-    grid-area: spacefromnav1;
-    position: relative;
-    background-color: white;
-}
-
-.spacefromnav4 {
-    grid-area: spacefromnav1;
-    position: relative;
-    background-color: white;
+    grid-area: wallpaperspace;
 }
 
 .home {
@@ -186,7 +166,7 @@ a:hover span:nth-child(4){
     grid-area: home;
     height: 140px;
     align-self: center;
-    background-image: url(https://drive.google.com/file/d/1pE9iCkUAcq4AX1ebc2Hxub5P5iBzPRWI/view?usp=sharing);
+    background-image: url(../zzz-image/BackgroundImage-visitor.jpg);
     width: 100%;
     height: 38vh;
     background-repeat: no-repeat;
@@ -232,17 +212,6 @@ a:hover span:nth-child(4){
     background-color: lightgray;
 }
 */
-
-.grid div:nth-child(4){
-    background-color: white;
-}
-
-.grid div:nth-child(5){  /* Performance */
-    background-color: white;
-}
-.grid div:nth-child(6){  /* Video */
-    background-color: white;
-}
 
 @media screen and (min-width: 736px) {
 
