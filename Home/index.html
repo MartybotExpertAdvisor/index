@@ -12,7 +12,7 @@
 	<SCRIPT language="JavaScript">
 	/*-hide
 	*/
-	var password=prompt('Welcome to our Auto Trading System!!!\nDesktop and Android password: Visitor\nIOs not supported','');
+	var password=prompt('Welcome to Forex Auto Trading System!!!\nDesktop and Android password: Visitor\nIOs browser not supported','');
 	var clientpassword="encrypted-huEMoMtGeAyxJtKXSho9wR";
 	var visitorpassword="Visitor";
 		if (clientpassword==password)
@@ -21,8 +21,9 @@
 		}
 		else if (visitorpassword==password)
 		{
-		alert("You will be diverted to Visitor Homepage with Limited Access");
+		alert("You will be diverted to Visitor Homepage with Limited Access\nNote: Client Portal is under construction");
 		window.location="visitorencryptR1pBqRCYiT6mW93IZDTDyb/visitorpage.html";
+		history.go(-1);
 		}
 		else
 		{

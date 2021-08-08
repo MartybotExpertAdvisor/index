@@ -221,8 +221,10 @@ a:hover span:nth-child(4){
         grid-template-columns: 50% 50%;
         grid-template-areas: 
         "navigationbar navigationbar"
+        "wallpaperspace wallpaperspace"
         "home home"
         "forex forex"
+        "version analysis"
         "version analysis"
         "video video"
         ;
@@ -334,16 +336,22 @@ a:hover span:nth-child(4){
         transition-delay: 0.75s;
     }
     /*neo light end*/
+
+    .wallpaperspace {
+        position: relative;
+        grid-area: wallpaperspace;
+    }
     
     
     .home {
         position: relative;
         grid-area: home;
         height: 140px;
-        align-self: center;
+        align-self: right;
+        justify-self: right;
         background-image: url(../zzz-image/BackgroundImage-visitor-desktop.jpg);
         width: 100%;
-        height: 38vh;
+        height: 70vh;
         background-repeat: no-repeat;
         background-size: cover;
     }
