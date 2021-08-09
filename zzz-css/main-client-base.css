@@ -195,7 +195,7 @@ a:hover span:nth-child(4){
 
 @keyframes animate{
     0%{
-        transform: translateX(-100%);
+        transform: translateX(-150%);
     }
     100%{
         transform: translateX(100%);
