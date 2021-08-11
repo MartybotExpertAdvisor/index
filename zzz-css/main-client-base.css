@@ -238,16 +238,6 @@ a:hover span:nth-child(4){
     justify-self: center;
 }
 
-/* grid ROW Background color
-.grid div:nth-child(even){
-    background-color: darkslategray;
-}
-
-.grid div:nth-child(odd){
-    background-color: lightgray;
-}
-*/
-
 /*auto popup */
 
 .popup{
@@ -257,7 +247,7 @@ a:hover span:nth-child(4){
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-top: 20%;
+    margin-top: 30%;
     display: none;
 }
 
