@@ -9,6 +9,7 @@
 
     <!--Redirect Page  -->
 	<noscript><meta http-equiv="refresh" content="0; url=https://marukocharobotto.github.io/index/Home/" /></noscript>
+    
 
 	<link rel="stylesheet" href="../../zzz-css/main-client-base.css" >
 </head>
@@ -66,27 +67,6 @@
                     <span></span>Contact us</a>
             </div>
         </div>
-        <!-- auto pop up-->
-        <div class="popup">
-            <div class="contentBox">
-                <div class="close">
-    
-                </div>
-                <div class="imgBox">
-                    <img src="../../zzz-image/gift.png">
-                </div>
-                <div class="content" >
-                    <div>
-                        <h3>Special Promo</h3><h2>835<sup>Php</sup><span>/mo</span></h2>
-                        <p>Limited time offer</p>
-                        <a href="#" id="subscribe">Subscribe Now</a>
-                    </div>
-                    
-                </div>
-            </div>
-    
-        </div>
-        <!-- auto pop up ends-->
         <div class="wallpaperspace" id="wallpaperspace">
             <h1><br><br><br><br> </h1>
         </div>
@@ -154,31 +134,6 @@
         </div>
     </div>
 
-    <!-- Automatic show pop up after 2 seconds   -->
-    <script>
-        const popup = document.querySelector('.popup');
-        const close = document.querySelector('.close');
-
-        window.onload = function()
-                    {
-                        setTimeout
-                        (
-                            function()
-                            {
-                                popup.style.display = "block"
-                                //add some time delay to show popup
-                            }, 2000)
-                    }
-        
-        close.addEventListener('click', () => {
-            popup.style.display = "none";
-        })
-
-        subscribe.addEventListener('click', () => {
-            popup.style.display = "none";
-        })
-
-    </script>
     <script>
 		// Disable the rightclick and ctrl and f12 keys to find the source file
 		// take body to change the content
