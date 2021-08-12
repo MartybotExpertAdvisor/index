@@ -7,65 +7,91 @@
 		Forex Auto Trading System --- Official Website
 	</title>
 
-    <!--Redirect Page  -->
+    <!--Redirect Page  
 	<noscript><meta http-equiv="refresh" content="0; url=https://marukocharobotto.github.io/index/Home/" /></noscript>
-
+        -->
 	<link rel="stylesheet" href="../../zzz-css/main-client-base.css" >
 </head>
 
 <body>
     <div class="grid">
-        <div class="navigationbar">
-            <a class="logo">AI Robot Fx Trading System</a>
+        <!-- Hidden Bar division-->
+        <nav>
+            <div class="navigationbar">
+                <a class="logo">AI Robot Fx Trading System</a>
+                <div class="nav">
+                    <a href="#"> 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Home</a>&nbsp;
+                    <a href="#version">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Version</a>
+                    <a href="#analysis">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>Market Analysis</a>
+                    <a href="#video">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>Video</a>
+                    <a href="https://www.myfxbook.com/members/MrLuckyTradeMax/basic-martybot-ver-395/8296824/woMzmkJqX8MY0n6U8dqu"> 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Portfolio</a>
+                    
+                </div>
             <div class="nav">
-                <a href="#wallpaperspace"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Home</a>&nbsp;
-                <a href="#version">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Version</a>
-                <a href="#analysis">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Market Analysis</a>
-                <a href="#video">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Video</a>
-                <a href="https://www.myfxbook.com/members/MrLuckyTradeMax/basic-martybot-ver-395/8296824/woMzmkJqX8MY0n6U8dqu"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Portfolio</a>
-                
+                    <a href="frequentlyaskquestion.html"> 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>FAQ's </a>
+                    <a href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>Client Portal</a>
+                    <a href="contact-us.html">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>Contact us</a>
+                </div>
             </div>
-           <div class="nav">
-                <a href="frequentlyaskquestion.html"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>FAQ's </a>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Client Portal</a>
-                <a href="contact-us.html">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Contact us</a>
-            </div>
-        </div>
+        </nav>
+        <!-- Hidden Bar division-->
+
+
+        <!-- script enable hide nav bar-->
+        <script>
+            const navigationbar = document.querySelector(".navigationbar");
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener("scroll", () => {
+                    if (lastScrollY < window.scrollY) {
+                        console.log("we are going down");
+                        navigationbar.classList.add("nav--hidden");
+                    }
+                    else {
+                        console.log("we are going up");
+                        navigationbar.classList.remove("nav--hidden");
+                    }
+
+                    lastScrollY = window.scrollY;
+            });
+        </script>
+        <!-- script enable hide nav bar ENDS-->
+
         <!-- auto pop up-->
         <div class="popup">
             <div class="contentBox">
@@ -86,10 +112,11 @@
             </div>
     
         </div>
-        <!-- auto pop up ends-->
+        <!-- auto pop up ends
         <div class="wallpaperspace" id="wallpaperspace">
             <h1><br><br><br><br> </h1>
         </div>
+    -->
         <div class="home" id="home">
             <div class="clouds">
                 <img src="../../zzz-image/cloud1.png" style="--i:1;">
@@ -132,12 +159,10 @@
             </p>
         </div>
         <div class="version" id="version">
-            <h1><br><br><br><br><br> </h1>
             <h1>Version 5.27</h1>
             <img src="../../zzz-image/EA-robot-image.png" style="width: 250px; height: 300px;">
         </div> 
         <div class="analysis" id="analysis">
-            <h1><br><br><br><br><br> </h1>
             <h1>Market Analysis</h1>
             <img src="../../zzz-image/Monthly-analytics.png" class="analysis">
 
