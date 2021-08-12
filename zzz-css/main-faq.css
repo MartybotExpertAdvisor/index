@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Audiowide:300,400,500,600,700&display=swap');
+
 body,
 html {
-	min-height:75%;
+	min-height:50%;
 	}
 body {
-	background-image:url(../zzz-image/BackgroundImage-visitor-faq.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
+	/*background-image:url(../../index/zzz-image/BackgroundImage-visitor.jpg);*/
+  background: #6cb1ff;
+	/*background-repeat: no-repeat;
+	background-size: cover;*/
 	
 }
 
@@ -66,4 +70,78 @@ body {
 
 .accordion__input:checked ~ .accordion__label::after {
   transform: translateY(-50%) rotate(0.5turn);
+}
+
+/*pre loading the website*/
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: lightgrey;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /*horizontal alignment*/
+  align-items: center; /* vertical alignment*/
+  z-index: 99;
+}
+.loader a{
+  line-height: 1em;
+  font-weight: 600;
+  font-size: 2em;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+.disappearloader{
+  animation: vanish 1s forwards;
+}
+@keyframes vanish{
+  100%{
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+/*pre loading the website ENDS*/
+
+.Title{
+  display: flex;
+  flex-direction: column;
+}
+
+.Title .return{
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.Title .ForexTitle{
+  position: relative;
+  top: 20px;
+}
+
+.Title p{ /*faq*/
+  display: flex;
+  font-weight: 600;
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  text-justify: left;
+  justify-items: left;
+}
+
+.Title .return a{
+  font-weight: 600;
+  font-size: 1em;
+  text-justify: right;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+.Title .ForexTitle a{
+  font-weight: 600;
+  font-size: 2em;
+  text-justify: left;
+  font-family: 'Poppins', sans-serif;
+  color: black;
 }

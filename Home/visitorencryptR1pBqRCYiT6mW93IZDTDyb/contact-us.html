@@ -11,6 +11,25 @@
 </head>
 
 <body>
+    <!-- Pre loading website -->
+    <div class="loader">
+        <img src="../../zzz-image/load-gif.gif" alt="loading gif">
+        <a>
+            Loading...
+        </a>
+    </div>
+    <script>
+        var loader = document.querySelector(".loader")
+
+        window.addEventListener("load", vanish);
+
+        function vanish() {
+            loader.classList.add("disappearloader");
+        }
+        /* console.log(loader); */
+    </script>
+    <!-- Pre loading website ENDS-->
+
     <div class="framecard">
         <div class="bordercard">
 
