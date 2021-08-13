@@ -1,16 +1,56 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Audiowide:300,400,500,600,700&display=swap');
 
-body,
 html {
-	min-height:50%;
+	min-height:90%;
 	}
 body {
 	/*background-image:url(../../index/zzz-image/BackgroundImage-visitor.jpg);*/
   background: #6cb1ff;
 	/*background-repeat: no-repeat;
 	background-size: cover;*/
+  padding: 5px;
 	
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 2% 48% 48% 2%;
+  grid-template-areas: 
+      ". Title Title ."
+      ". faq-wallpaper faq-wallpaper ."
+      ". . . ."
+      ". accordion accordion ."
+  ;
+  align-self: center;
+  grid-gap: 5px;
+}
+
+.Title {
+  grid-area: Title;
+  height: 60px;
+}
+
+.faq-wallpaper {
+  grid-area: faq-wallpaper;
+}
+
+.accordion {
+  grid-area: accordion;
+}
+
+
+.faq-wallpaper {
+  margin-top: 100px;
+  position: relative;
+  grid-area: home;
+  height: 140px;
+  align-self: center;
+  background-image: url(../zzz-image/BackgroundImage-visitor.jpg);
+  width: 100%;
+  height: 20vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .accordion {
@@ -104,15 +144,10 @@ body {
 }
 /*pre loading the website ENDS*/
 
-.Title{
-  display: flex;
-  flex-direction: column;
-}
-
 .Title .return{
   position: absolute;
   right: 0;
-  top: 10px;
+  top: 0;
 }
 
 .Title .ForexTitle{
@@ -122,12 +157,18 @@ body {
 
 .Title p{ /*faq*/
   display: flex;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   font-weight: 600;
   font-size: 1em;
   font-family: 'Poppins', sans-serif;
   color: black;
   text-justify: left;
   justify-items: left;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .Title .return a{
