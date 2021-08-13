@@ -206,7 +206,7 @@ a:hover span:nth-child(4){
     align-self: center;
     background-image: url(../zzz-image/BackgroundImage-visitor.jpg);
     width: 100%;
-    height: 38vh;
+    height: 20vh;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -347,6 +347,7 @@ a:hover span:nth-child(4){
 
 }
 
+/* hide temporarily 
 .contentBox .content h2{
     color: #ff4d54;
     line-height: 1em;
@@ -356,9 +357,9 @@ a:hover span:nth-child(4){
 .contentBox .content h2 span{
     color: #333;
     font-size: 0.75em;
-    /*text-transform: uppercase;*/
+    /*text-transform: uppercase;
 }
-
+*/
 .contentBox .content p{
     font-weight: 300;
 }
