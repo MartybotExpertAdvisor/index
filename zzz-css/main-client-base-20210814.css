@@ -43,7 +43,7 @@
     /*overflow: hidden; it means no scrolling down only screen*/ 
 }
 :root{
-    --header--height: 100px;
+    --header--height: 135px;
     scroll-padding-top: var(--header--height);
 }
 /* Webpage Layout */
