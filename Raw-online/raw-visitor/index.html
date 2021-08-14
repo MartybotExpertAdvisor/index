@@ -4,52 +4,369 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial scale=1.0">
     <title>
-		Auto pop-up sample
+		Forex Auto Trading System --- Official Website
 	</title>
 
-	<link rel="stylesheet" href="../../zzz-css/auto-popup.css" >
+    <!--Redirect Page  
+	<noscript><meta http-equiv="refresh" content="0; url=https://marukocharobotto.github.io/index/Home/" /></noscript>
+        -->
+	<link rel="stylesheet" href="../../zzz-css/main-client-base-20210814.css" >
 </head>
-<body>
-    <div class="popup">
-        <div class="contentBox">
-            <div class="close">
 
+<body>
+    <!--PRE LOADER to COMPLETE WEB PAGE contents---------------------------------------------------------------------------------------->
+    <!-- Pre loading website -->
+    <div class="loader">
+        <img src="../../zzz-image/load-gif.gif" alt="loading gif">
+        <a>
+            Loading...
+        </a>
+    </div>
+    <script>
+        var loader = document.querySelector(".loader")
+
+        window.addEventListener("load", vanish);
+
+        function vanish() {
+            loader.classList.add("disappearloader");
+        }
+        /* console.log(loader); */
+    </script>
+    <!-- Pre loading website ENDS-------------------------------------------------------------------------------------------------------->
+
+    <!-- PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
+    <div class="grid">
+        <div class="navigationbar">
+            <h1>AI Robot Fx Trading System</h1>
+            <div class="navName1">
+                <a href="#"> 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Home</a>
+                <a href="#version">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Version</a>
+                <a href="#analysis">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Market-Analysis</a>
+                <a href="#video">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Video</a>
+                <a href="https://www.myfxbook.com/members/MrLuckyTradeMax/basic-martybot-ver-395/8296824/woMzmkJqX8MY0n6U8dqu"> 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Portfolio</a>
             </div>
-            <div class="imgBox">
-                <img src="../../zzz-image/gift.png">
-            </div>
-            <div class="content" >
-                <div>
-                    <h3>Special</h3><h2>80<sup>%</sup><span>Off</span></h2>
-                    <p>Limited time offer</p>
-                    <a href="#">Get the Deal</a>
-                </div>
+            <div class="titlebetweenline">
                 
+            </div>
+            <div class="navName2">
+                <a href="#FAQ"> 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>FAQ's</a>
+                <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Client-Portal</a>
+                <a href="contact-us.html">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Contact us</a>
             </div>
         </div>
 
-    </div>
+        <!-- hidden nav bar styling, script enable hide nav bar-->
+        <script>
+            const navigationbar = document.querySelector(".navigationbar");
+            let lastScrollY = window.scrollY;
 
-    <!-- Automatic show pop up after 2 seconds   -->
-    <script>
-        const popup = document.querySelector('.popup');
-        const close = document.querySelector('.close');
-
-        window.onload = function()
-                    {
-                        setTimeout
-                        (
-                            function()
-                            {
-                                popup.style.display = "block"
-                                //add some time delay to show popup
-                            }, 2000)
+            window.addEventListener("scroll", () => {
+                    if (lastScrollY < window.scrollY) {
+                        console.log("we are going down");
+                        navigationbar.classList.add("nav--hidden");
                     }
-        
-        close.addEventListener('click', () => {
-            popup.style.display = "none";
-        })
+                    else {
+                        console.log("we are going up");
+                        navigationbar.classList.remove("nav--hidden");
+                    }
 
-    </script>
+                    lastScrollY = window.scrollY;
+            });
+        </script>
+        <!-- script enable hide nav bar ENDS-->
+
+        <div class="home" id="home">
+            <!--
+            <div class="clouds">
+                <img src="../../zzz-image/cloud1.png" style="--i:1;">
+                <img src="../../zzz-image/cloud2.png" style="--i:2;">
+                <img src="../../zzz-image/cloud3.png" style="--i:3;">
+                <img src="../../zzz-image/cloud4.png" style="--i:4;">
+                <img src="../../zzz-image/cloud5.png" style="--i:5;">
+            </div>
+            -->
+        </div>
+
+        <!--AUTO POP UP-------------------------------------------------------------------------------------->
+        <div class="popup">
+            <div class="contentBox">
+                <div class="close">
+    
+                </div>
+                <div class="imgBox">
+                    <img src="../../zzz-image/gift.png">
+                </div>
+                <div class="content" >
+                    <div>
+                        <h3>Algo Updates...</h3>
+                        <h2>Coming Soon!!!
+                            <!--
+                            <sup>Php</sup><span>/mo</span>
+                            -->
+                        </h2>
+                        <p>Live Testing Phase On-going</p>
+                        <a href="#" id="subscribe">Subscribe Now</a>
+                    </div>
+                    
+                </div>
+            </div>
+    
+        </div>
+        <script>
+            const popup = document.querySelector('.popup');
+            const close = document.querySelector('.close');
+    
+            window.onload = function()
+                        {
+                            setTimeout
+                            (
+                                function()
+                                {
+                                    popup.style.display = "block"
+                                    //add some time delay to show popup
+                                }, 5000)
+                        }
+            
+            close.addEventListener('click', () => {
+                popup.style.display = "none";
+            })
+    
+            subscribe.addEventListener('click', () => {
+                popup.style.display = "none";
+            })
+    
+        </script>
+        <!-- auto pop up ends----------------------------------------------------------------------------------------------------------->
+        <div class="forex">
+            <h1>What is forex?</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The foreign exchange market, which is usually known as “forex” or “FX,” is the largest financial market in the world.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The FX market is a global, decentralized market where the world’s currencies change hands. Exchange rates change by the second so the market is constantly in flux.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only a tiny percentage of currency transactions happen in the “real economy” involving international trade and tourism like the airport example above.
+                Instead, most of the currency transactions that occur in the global foreign exchange market are bought (and sold) for speculative reasons.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Currency traders (also known as currency speculators) buy currencies hoping that they will be able to sell them at a higher price in the future.
+                Compared to the “measly” $22.4 billion per day volume of the New York Stock Exchange (NYSE), the foreign exchange market looks absolutely ginormous with its $6.6 TRILLION a day trade volume.
+                That’s trillion with a “t”. Let’s take a moment to put this into perspective using monsters…
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The largest stock market in the world, the New York Stock Exchange (NYSE), trades a volume of about $22.4 billion each day. If we used a monster to represent the NYSE, it would look like this…
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Looks intimidating. Looks like it works out. Some may even find it sexy.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You hear about the NYSE in the news every day… on CNBC… on Bloomberg…on BBC… heck, you even probably hear about it at your local gym. “The NYSE is up today, blah, blah”.
+                When people talk about the “market”, they usually mean the stock market. So the NYSE sounds big, it’s loud and likes to make a lot of noise.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;But if you actually compare it to the forex market, it would look like this…
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oooh, the NYSE looks so puny compared to the forex market! It doesn’t stand a chance!
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Makes you wonder if the “S” in NYSE stands for “Stock” or for “Scrawny”? 🤣
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check out the graph of the average daily trading volume for the forex market, New York Stock Exchange, Tokyo Stock Exchange, and London Stock Exchange:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The currency market is over 200 times BIGGER! It is HUGE! But hold your horses, there’s a catch!
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That huge $6.6 trillion number covers the entire global foreign exchange market, BUT the “spot” market, which is the part of the currency market that’s relevant to most forex traders is smaller at $2 trillion per day.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And then, if you just want to count the daily trading volume from retail traders (that’s us), it’s even smaller.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is very difficult to determine the exact size of the retail segment of the FX market, but it’s estimated to be around 3-5% of overall daily FX trading volumes, or around $200-300 billion (probably less).
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So you see, the forex market is definitely huge, but not as huge as the others would like you to believe.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don’t believe the “forex is a $6.6 trillion market” hype! The huge number sounds impressive, but a bit misleading. We don’t like to exaggerate. We just keepin’ it real.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aside from its size, the market also rarely closes! It’s open virtually round the clock.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The forex market is open 24 hours a day and 5 days a week, only closing down during the weekend. (What a bunch of slackers!)
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So unlike the stock or bond markets, the forex market does NOT close at the end of each business day.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instead, trading just shifts to different financial centers around the world.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The day starts when traders wake up in Auckland/Wellington, then moves to Sydney, Singapore, Hong Kong, Tokyo, Frankfurt, London, and finally, New York, before trading starts all over again in New Zealand!
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--from Babypips.com--
+            </p>
+        </div>
+        <div class="version" id="version">
+            <h1>Version 5.27</h1>
+            <img src="../../zzz-image/EA-robot-image.png" style="width: 250px; height: 300px;">
+        </div> 
+        <div class="analysis" id="analysis">
+            <h1>Market Analysis</h1>
+            <img src="../../zzz-image/Monthly-analytics.png" class="analysis">
+
+        </div>
+        <div class="video" id="video">
+            <h1>Video</h1>
+            <video width="416" height="312" controls>
+                <source src="../../zzz-image/Martybotvideofile1.mp4" type="video/mp4">
+                <source src="../../zzz-image/Martybotvideofile1.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="clientportal" id="clientportal">
+        </div>
+
+        <!--ACCORDION-------------------------------------------------------------------------------->
+        <div class="accordion" id="FAQ">
+		
+			<div>
+				<!--<input type="radio" name="example_accordion" id="section1" class="accordion__input"> close open the accordion option-->
+				<input type="checkbox" name="example_accordion" id="section1" class="accordion__input">
+				<label for="section1" class="accordion__label">How to get STARTED?</label>
+				<div class="accordion__content">
+				<p>How to get STARTED?</p>
+				<p>
+					1. Create a broker Micro/CENT account, and set it according to our recommended settings. <br>
+					2. Minimum required capital :: $1,000 (XM Broker) or $500 (FBS Broker)  <br> 
+					3. We will attach the auto trading robot on your account and start trading 24hrs and 5 days a week. <br> 
+					4. Start making some profits.<br> 
+				</p>
+			</div>
+			</div>
+			<div>
+				<input type="checkbox" name="example_accordion" id="section2" class="accordion__input">
+				<label for="section2" class="accordion__label">Can you use any brokers?</label>
+				<div class="accordion__content">
+				<p>Can you use any brokers?</p>
+				<p>
+					<font size="5">⚜</font size="4">Yes, of course, as long as it can met the robot recommended settings and fund. <br>
+				</p>
+			</div>
+			</div>
+			<div>
+				<input type="checkbox" name="example_accordion" id="section3" class="accordion__input">
+				<label for="section3" class="accordion__label">Do you need to Open your PC?</label>
+				<div class="accordion__content">
+				<p>Do you need to Open your PC?</p>
+				<p>
+					<font size="5">⚜</font size="4">No need, we will use Virtual Private Server and it is included on your subscription payment.
+				</p>
+				</div>
+			</div>
+			
+			<div>
+				<input type="checkbox" name="example_accordion" id="section4" class="accordion__input">
+				<label for="section4" class="accordion__label">Do you have access on your MT4 account?</label>
+				<div class="accordion__content">
+				<p>Do you have access on your MT4 account?</p>
+				<p>
+					<font size="5">⚜</font size="4">Yes you have full control of your MT4. <br>
+				</p>
+				</div>
+			</div>
+			
+			<div>
+				<input type="checkbox" name="example_accordion" id="section5" class="accordion__input">
+				<label for="section5" class="accordion__label">Do you have to set anything?</label>
+				<div class="accordion__content">
+				<p>Do you have to set anything?</p>
+				<p>
+					<font size="5">⚜</font size="4">No need, we will set it up for you. <br>
+				</p>
+				</div>
+			</div>
+			
+			<div>
+				<input type="checkbox" name="example_accordion" id="section6" class="accordion__input">
+				<label for="section6" class="accordion__label">What is the average monthly return?</label>
+				<div class="accordion__content">
+				<p>What is the average monthly return?</p>
+				<p>
+					Based of our past performance: <br>
+					1. Mode1:: Aggressive:: 15-30% per month (Risk::65%)<br>
+					2. Mode2:: Semi-Aggressive:: 7-15% per month (Risk::65%)<br>
+					3. Mode3:: Semi-Conservative:: 5-7% per month (Risk::50%)<br>
+					4. Mode4:: Conservative:: 3-5% per month (Risk::38%)<br>
+					5. Mode5:: Intermediate:: 7-10%% per month (Risk::45%) Fund::$2k MIN<br>
+					6. Mode5:: EXTREME:: 20-40% per month (Risk::100%)<br>
+
+				</p>
+			</div>
+		</div>
+        <!--ENDS ACCORDION-------------------------------------------------------------------------------->
+    </div>
+    <!-- ENDS PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
+
+    <!--DISABLE RIGHT CLICK, CTRL, F12 to explore the contents of WEB PAGE------------------------------------------------------------->
+    <script>
+		// Disable the rightclick and ctrl and f12 keys to find the source file
+		// take body to change the content
+		const body = document.getElementsByTagName('body');
+		// stop keyboard shortcuts
+		window.addEventListener("keydown", (event) => {
+			if(event.ctrlKey && (event.key === "S" || event.key === "s")) {
+				event.preventDefault();
+				alert("Sorry, you can't do this 💔");
+			}
+
+			if(event.ctrlKey && (event.key === "C")) {
+				event.preventDefault();
+				alert("Sorry, you can't do this 💔");
+			}
+			if(event.ctrlKey && (event.key === "E" || event.key === "e")) {
+				event.preventDefault();
+				alert("Sorry, you can't do this 💔");
+			}
+			if(event.ctrlKey && (event.key === "I" || event.key === "i")) {
+				event.preventDefault();
+				alert("Sorry, you can't do this 💔");
+			}
+			if(event.ctrlKey && (event.key === "K" || event.key === "k")) {
+				event.preventDefault();
+				alert("Sorry, you can't do this 💔");
+			}
+			if(event.ctrlKey && (event.key === "U" || event.key === "u")) {
+				event.preventDefault();
+				alert("Sorry, you can't do this 💔");
+			}
+		});
+		// stop keyboard shortcuts end
+		// stop right click 
+			if (document.addEventListener) {
+				document.addEventListener('contextmenu', function(e) {
+				alert("Sorry, you can't do this 💔");
+				e.preventDefault();
+				}, false);
+			}
+			else {
+				document.attachEvent('oncontextmenu', function() {
+				alert("Sorry, you can't do this 💔");
+				window.event.returnValue = false;
+				});
+			}
+		</script>
+
+		<script type="text/javascript">
+		//disable F12 keys
+			document.onkeydown = function (event)
+			{
+			event = (event || window.event);
+				if (event.keyCode == 123 || event.keyCode == 18)
+               {
+                    alert("Sorry, you can't do this 💔");
+                    return false;
+               }
+            }
+			//Javascript ENDS here
+        </script>
+        <!--DISABLE RIGHT CLICK, CTRL, F12 to explore the contents of WEB PAGE------------------------------------------------------------->
 </body>
 </html>
