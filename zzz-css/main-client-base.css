@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Audiowide:300,400,500,600,700&display=swap');
-html {
-    scroll-behavior: smooth;
-}
-* { margin: 0;
-    box-sizing: border-box; /*this is necessary for animation to maintain the border of clouds */
-}
 
-/*pre loading the website*/
+/*PRE LOADER the website///////////////////////////////////////////////////////////////////////////////////////////// */
 .loader{
     position: fixed;
     top: 0;
@@ -37,98 +31,128 @@ html {
         visibility: hidden;
     }
 }
-/*pre loading the website ENDS*/
+/*ENDS PRE LOADER the website//////////////////////////////////////////////////////////////////////////////////////////// */
+
 
 /* mobile version */
+
+*{ /* this code necessary for better margin of text on overall layout*/
+    margin: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box; /*this is necessary for animation to maintain the border of clouds */
+   /* overflow: visible; it means no scrolling down only screen */
+}
+:root{
+    --header--height: 45px;
+    scroll-padding-top: var(--header--height);
+}
+/* Webpage Layout */
 .grid{
     display: grid;
     grid-template-columns: 2% 48% 48% 2%;
     grid-template-areas: 
+        ". aiRobottitle aiRobottitle ."
         ". navigationbar navigationbar ."
         ". home home ."
         ". popup popup ."
         ". forex forex ."
         ". version version ."
         ". analysis analysis ."
+        ". FAQ FAQ ."
         ". video video ."
-    ;
-    align-self: center;
-    grid-gap: 5px;
-}
 
-/* Font styling*/
-h1  {
-    /*
-    font-family: Georgia, 'Times New Roman', Times, serif; 
-    */
+    ;
+    align-items: center;
+    --grid-height: 5px;
+    grid-gap: var(--grid-height);
+    /*grid-gap: 5px;*/
+    position: relative;
+    /*background: turquoise;*/
+}
+/* NAVIGATION BAR etc//////////////////////////////////////////////////////////////////////////*/ 
+.aiRobottitle{
+    grid-area: aiRobottitle;
+    position: sticky;
+    top: 0px;
+    padding-top: 5px;
+    width: 100%;
+    background: whitesmoke;
+    /*box-shadow: 0 5px 15px rgba(0,0,0,0.2);*/
+    z-index: 2;
+}
+.aiRobottitle h1{ /*TITLE*/
+    margin-top: 0%;
+    width: 100%;
     font-family: audiowide;
     font-size: 20px;
-    justify-self: left;
-    margin-left: 10px;
+    text-align: center;
     letter-spacing: 2px;
-    }
-/* Font styling ends*/
-
-
-.navigationbar {
-    position: fixed;
-    width: 100%;
+}
+.navigationbar{
     grid-area: navigationbar;
+    position: sticky;
+    top: 35px; /* adjust the level of navigation bar if scroll down fully appear*/
+    left: 0;
+    width: 100%;
+    max-height: var(--header--height);
+    border-radius: 1px;
     background: white;
+    text-align: center;
     z-index: 1;
     /*hidden nav bar variable assign*/
     --nav-height: 100px;
     height: var(--nav-height);
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    transition: transform 1.0s;
+             /* box-shadow: 0 0 10px rgba(0,0,0,0.2);*/
+    transition: transform 1.5s;
     /*hidden nav bar variable assign*/
 }
-
- /*hidden nav bar styling*/
+/*hidden nav bar styling*/
 .nav--hidden{
     transform: translateY(calc(-1*var(--nav-height)));
     box-shadow: none;
 }
  /*hidden nav bar styling*/
-
-.logo {
-    margin-left: 2%;
-    justify-self: center;
-    font-weight: bold;
-    font-size: 20px;
-    font-style: normal;
-    color: rgb(1, 1, 12);
-    align-self: left;
-    font-family: audiowide;
-    letter-spacing: 2px;
+.titlebetweenline{
+    content: '';
+    position: relative;
+    /*top: calc(var(--grid-height) * -1);*/
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: relative;  
 }
-
-.nav {
+.navName1{
+    position: relative;
+    top: calc(var(--grid-height) * -1); /*adjusted to hide the text behind when scrolling*/
+}
+.navName2{
+    position: relative;
+    top: calc(var(--grid-height) * -1); /*adjusted to hide the text behind when scrolling*/
+}
+.navName1, .navName2{
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
+    width: 100%;
     background: #031321;
-    font-family: consolas;
+    padding-top: 3px;
+    border-radius: 5px;
 }
 
-.nav a{
-    align-items: center;
-    align-self: center;
-    position: relative;
-    display: inline-block;
-    padding: 10px 10px;
-    color: #2196f3;
+
+.navName1 a, .navName2 a{
+    position: relative; /* necessary for span to identify the position*/
+    padding: 5px 5px;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 12px;
+    color: #2196f3;
     overflow: hidden;
     transition: 0.2s;
     border-radius: 8px;
-}  
+    font-family: consolas;
+    font-size: 0.8em;
+    display: inline-block; /*constrict the text not exceed the width of container if view port width decreases*/
+}
+
 /*neo light start*/
 a:hover{
     color: #255784;
@@ -136,7 +160,6 @@ a:hover{
     box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3; 
     transition-delay: 1s;
 }
-
 
 a span{
     position: absolute;
@@ -183,6 +206,7 @@ a:hover span:nth-child(2){
     transition: 1s;
     transition-delay: 0.25s;
 }
+
 a span:nth-child(4){
     bottom: -100%;
     left: 0;
@@ -196,89 +220,68 @@ a:hover span:nth-child(4){
     transition: 1s;
     transition-delay: 0.75s;
 }
-/*neo light end*/
 
-.home {
-    margin-top: 100px;
-    position: relative;
+/*neo light end*/
+/*END NAVIGATION BAR //////////////////////////////////////////////////////////////////////////*/ 
+
+/*HOME//////////////////////////////////////////////////////////////////////////////////////*/
+.home{
     grid-area: home;
-    height: 140px;
+    margin-top: calc(var(--header--height) - 25px);
+    position: relative;
     align-self: center;
     background-image: url(../zzz-image/BackgroundImage-visitor.jpg);
     width: 100%;
     height: 20vh;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 5px;
 }
-/* clouds animation starts */
-.clouds{
-    position: relative;
-    padding: 75px 100px;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.clouds img{
-    position: absolute;
-    bottom: 0;
-    max-width: 100%;
-    animation: animate calc(8s * var(--i)) linear infinite;
-}
-
-@keyframes animate{
-    0%{
-        transform: translateX(-150%);
-    }
-    100%{
-        transform: translateX(100%);
-    }
-}
-/* clouds animation ends */
-.popup {
-    grid-area: popup;
-    z-index: 1;
-}
-
-.forex {
+/*ENDS HOME*/
+.forex{
     grid-area: forex;
     position: relative;
-    background-color: rgba(106, 119, 110, 0.87);
-    color: rgb(7, 7, 0);
-}
-
-.forex p{
-    margin: 10px;
-}
-
-.version {
-    grid-area: version;
-    position: relative;
-    padding-top:20px;
-    justify-self: center;
-}
-
-.analysis {
-    grid-area: analysis;
-    position: relative;
-    padding-top:20px;
-    justify-self: center;
     width: 100%;
+    border-radius: 5px;
 }
 
-.video {
-    grid-area: video;
+.forex h1, .forex p, .version a, .version p{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+    display: inline-block;
+}
+
+.forex h1, .version h1, .analysis h1, .video h1{
+    font-family: audiowide;
+    font-size: 20px;
+}
+
+.forex p, .version p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+/*
+.forex .boxOutline{
     position: relative;
-    padding-top:20px;
-    justify-self: center;
+    top: 10px;
+    left: 0px;
+    width: 250px;
+    height: 300px;
+    border-radius: 5px;
+    background: #cde8f8;
+    box-shadow: inset -5px -5px 5px rgba(255,255,255,0.5),
+                inset 5px 5px 5px rgba(0, 0, 0, 0.1);
+    filter: blur(1px);
 }
-
+*/
+/*POP UP Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
+.popup {
+    grid-area: popup;
+    z-index: 99;
+}
 /*auto popup */
-
 .popup{
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
@@ -289,8 +292,6 @@ a:hover span:nth-child(4){
     margin-top: 30%;
     display: none;
 }
-
-
 .contentBox{
     position: relative;
     width: 350px;
@@ -346,7 +347,6 @@ a:hover span:nth-child(4){
     font-size: 2em;
 
 }
-
 /* hide temporarily 
 .contentBox .content h2{
     color: #ff4d54;
@@ -363,7 +363,6 @@ a:hover span:nth-child(4){
 .contentBox .content p{
     font-weight: 300;
 }
-
 .contentBox .content a{
     display: inline-block;
     padding: 10px 20px;
@@ -386,215 +385,212 @@ a:hover span:nth-child(4){
     border-radius: 50%;
     z-index: 10;  
 }
-/*auto pop up*/
+/*ENDs POP UP Styling Layout///////////////////////////////////////////////////////////////////////////////////////*/
 
-/* DESKTOP*/
-/*/////////////////////////////////////////////////////////////////////////*/
-/*///////////////////////////////////////////////////////////////////////*/
+/*Version to Video Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
+.version {
+    grid-area: version;
+    position: relative;
+    justify-self: center;
+    /*padding-top:20px;*/
+}
+.version .joinus{
+    position: relative;
+    top: -5px;
+    left: 310px;
+    height: 50px;
+}
+.version .joinus2{
+    position: relative;
+    top: 5px;
+    left: 30px;
+    height: 50px;
+}
+.version .robotpeek{
+    position: relative;
+    top: -50px;
+    left: -25px;
+    width: 75px;
+}
+.version h2{
+    font-family: audiowide;
+    font-size: 15px;
+}
 
+.analysis {
+    grid-area: analysis;
+    position: relative;
+    width: 100%;
+    justify-self: center;
+    /*padding-top:20px;*/
+}
+.analysis img{
+    position: relative;
+    border-radius: 5px;
+}
+
+/* FAQs ACCORDION//////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.FAQ {
+    grid-area: FAQ;
+    position: relative;
+}
+.faqtitle1{
+    position: relative;
+    top: 20px;
+    left: 0px;
+    height: 50px;
+}
+.faqtitle2{
+    position: relative;
+    top: -30px;
+    left: 80px;
+    height: 50px;
+}
+.accordion {
+    position: relative;
+    top: -30px;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    background: #009578;
+  }
+  
+  .accordion__label,
+  .accordion__content {
+    padding: 14px 20px;
+  }
+  
+  .accordion__label {
+    display: block;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+  }
+  
+  .accordion__label:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordion__label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+  }
+  
+  .accordion__content {
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 0.85em;
+    display: none;
+  }
+  
+  .accordion__input {
+    display: none;
+  }
+  
+  .accordion__input:checked ~ .accordion__content {
+    display: block;
+  }
+  
+  .accordion__input:checked ~ .accordion__label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+  }
+  
+/* ENDS FAQs ACCORDION////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.video {
+    grid-area: video;
+    position: relative;
+    justify-self: center;
+}
+.video video{
+    width: 100%;
+    padding: 5%;
+    border-radius: 5px;
+}
+/*ENDS Version to Video Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/*  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
 @media screen and (min-width: 736px) {
 
     .grid{
-        /* 5%  45% 45% 5% = means we have 4 frames occupying certain percentage of screen*/
         display: grid;
-        grid-template-columns: 35% 65%;
+        grid-template-columns: 2% 48% 48% 2%;
         grid-template-areas: 
-        "navigationbar navigationbar"
-        "home home"
-        "popup popup"
-        "forex version"
-        "forex video"
-        "forex analysis"
+        ". aiRobottitle aiRobottitle ."
+        ". navigationbar navigationbar ."
+        ". home home ."
+        ". popup popup ."
+        ". forex version ."
+        ". forex analysis ."
+        ". forex . ."
+        ". FAQ video ."
         ;
-        align-self: center;
-        align-items: center;
-        grid-gap: 5px;
-        
+        align-items: initial; /* necessary to align items at the end of each item*/
+        --grid-height: 5px;
+        grid-gap: var(--grid-height);
+        /*grid-gap: 5px;*/
+        position: relative;
+        /*background: turquoise;*/
     }
 
-    .navigationbar {
-        position: fixed;
-        width: 100%;
-        grid-area: navigationbar;
-         /*hidden nav bar variable assign*/
-         --nav-height: 120px;
-         height: var(--nav-height);
-         box-shadow: 0 0 10px rgba(0,0,0,0.2);
-         transition: transform 1.0s;
-         /*hidden nav bar variable assign*/
-        z-index: 1;
-    }
+    /* WEB PAGE LAYOUT /////////////////////////////  */
 
-    .nav {
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-        font-weight: bold;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        align-self: center;
-        background: #031321;
-        font-family: consolas;
-    }
-    
-    .nav a{
-        align-items: center;
-        align-self: center;
-        position: relative;
-        display: inline-block;
-        padding: 10px 10px;
-        color: #2196f3;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 20px;
-        overflow: hidden;
-        transition: 0.2s;
-        border-radius: 8px;
-    }  
-    /*neo light start*/
-    a:hover{
-        color: #255784;
-        background: #2196f3;
-        box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3; 
-        transition-delay: 1s;
-    }
-    
-    
-    a span{
-        position: absolute;
-        display: block;
-    }
-    
-    a span:nth-child(1){
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #2196f3); 
-    }
-    
-    a:hover span:nth-child(1){
-        left: 100%;
-        transition: 1s;
-    }
-    
-    a span:nth-child(3){
-        bottom: 0;
-        right: -100%;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(270deg, transparent, #2196f3); 
-    }
-    
-    a:hover span:nth-child(3){
-        right: 100%;
-        transition: 1s;
-        transition-delay: 0.5s;
-    }
-    
-    a span:nth-child(2){
-        top: -100%;
-        right: 0%;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(180deg, transparent, #2196f3); 
-    }
-    
-    a:hover span:nth-child(2){
-        top: 100%;
-        transition: 1s;
-        transition-delay: 0.25s;
-    }
-    a span:nth-child(4){
-        bottom: -100%;
-        left: 0;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(360deg, transparent, #2196f3); 
-    }
-    
-    a:hover span:nth-child(4){
-        bottom: 100%;
-        transition: 1s;
-        transition-delay: 0.75s;
-    }
-    /*neo light end*/
-    
-    .home {
-        position: relative;
+    .home{
         grid-area: home;
-        height: 140px;
-        align-self: right;
-        justify-self: right;
+        margin-top: calc(var(--header--height) - 25px);
+        position: relative;
+        align-self: center;
         background-image: url(../zzz-image/BackgroundImage-visitor-desktop.jpg);
         width: 100%;
-        height: 70vh;
+        height: 40vh;
         background-repeat: no-repeat;
         background-size: cover;
+        border-radius: 5px;
+    }
+    .popup {
+        grid-area: popup;
+        position: fixed;
+        top: 90px;
+        z-index: 99;
+    }
+    .forex{
+        grid-area: forex;
+        position: relative;
+        top: 0px;
+        width: 100%;
+        border-radius: 5px;
     }
     
-    .forex{
-        padding-top:20px;
-        padding-left: 5%;
-        padding-right: 5%;    }
-
-    .analysis {
-        grid-area: analysis;
+    .version {
+        grid-area: version;
         position: relative;
-        min-height: 360px;
-        max-height: 360px;
-        max-width: 700px;
-        padding-left: 5%;
-        padding-right: 5%;
+        justify-self: center;
+        /*padding-top:20px;*/
     }
     .video {
-        padding-top:20px;
+        grid-area: video;
+        position: relative;
+        left: 0px;
+        justify-self: center;
+        border-radius: 5px;
     }
-    
-    /*auto popup*/
-    .popup{
-        min-height: 75vh;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin-top: 15%;
-        display: none;
+    .video video{
+        height: 350px;
+        padding: 5%;
+        border-radius: 5px;
     }
-    
-        
-    .contentBox{
-        width: 650px;
-        height: 400px;
-        flex-direction: row;
-    }
-
-    .contentBox .imgBox{
-        margin-top: 15%;
-        height: 400px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .contentBox .imgBox::before{
-        background: rgb(241, 160, 7);
-    }
-
-    .contentBox .content{
-        height: 400px;
-        width: 300px;
-        text-align: center;
-        align-self: center;
-        padding: 20px;
-        padding-top: 0%;
-    }
-
-    .close{
-        top: 20px;
-        right: 20px;
-        width: 40px;    
-    }
-        /*auto popup ends*/
-        
+    /* WEB PAGE LAYOUT /////////////////////////////  */
 }
-

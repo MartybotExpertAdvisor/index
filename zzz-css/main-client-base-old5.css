@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Audiowide:300,400,500,600,700&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+* { margin: 0;
+    box-sizing: border-box; /*this is necessary for animation to maintain the border of clouds */
+}
+
+/*pre loading the website*/
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: lightgrey;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*horizontal alignment*/
+    align-items: center; /* vertical alignment*/
+    z-index: 99;
+}
+.loader a{
+    line-height: 1em;
+    font-weight: 600;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.disappearloader{
+    animation: vanish 1s forwards;
+}
+@keyframes vanish{
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/*pre loading the website ENDS*/
+
+/* mobile version */
+.grid{
+    display: grid;
+    grid-template-columns: 2% 48% 48% 2%;
+    grid-template-areas: 
+        ". navigationbar navigationbar ."
+        ". home home ."
+        ". popup popup ."
+        ". forex forex ."
+        ". version version ."
+        ". analysis analysis ."
+        ". video video ."
+    ;
+    align-self: center;
+    grid-gap: 5px;
+}
+
+/* Font styling*/
+h1  {
+    /*
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+    */
+    font-family: audiowide;
+    font-size: 20px;
+    justify-self: left;
+    margin-left: 10px;
+    letter-spacing: 2px;
+    }
+/* Font styling ends*/
+
+
+.navigationbar {
+    position: fixed;
+    width: 100%;
+    grid-area: navigationbar;
+    background: white;
+    z-index: 1;
+    /*hidden nav bar variable assign*/
+    --nav-height: 100px;
+    height: var(--nav-height);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: transform 1.0s;
+    /*hidden nav bar variable assign*/
+}
+
+ /*hidden nav bar styling*/
+.nav--hidden{
+    transform: translateY(calc(-1*var(--nav-height)));
+    box-shadow: none;
+}
+ /*hidden nav bar styling*/
+
+.logo {
+    margin-left: 2%;
+    justify-self: center;
+    font-weight: bold;
+    font-size: 20px;
+    font-style: normal;
+    color: rgb(1, 1, 12);
+    align-self: left;
+    font-family: audiowide;
+    letter-spacing: 2px;
+}
+
+.nav {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background: #031321;
+    font-family: consolas;
+}
+
+.nav a{
+    align-items: center;
+    align-self: center;
+    position: relative;
+    display: inline-block;
+    padding: 10px 10px;
+    color: #2196f3;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+    overflow: hidden;
+    transition: 0.2s;
+    border-radius: 8px;
+}  
+/*neo light start*/
+a:hover{
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3; 
+    transition-delay: 1s;
+}
+
+
+a span{
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+}
+
+a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+a span:nth-child(2){
+    top: -100%;
+    right: 0%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+/*neo light end*/
+
+.home {
+    margin-top: 100px;
+    position: relative;
+    grid-area: home;
+    height: 140px;
+    align-self: center;
+    background-image: url(../zzz-image/BackgroundImage-visitor.jpg);
+    width: 100%;
+    height: 20vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* clouds animation starts */
+.clouds{
+    position: relative;
+    padding: 75px 100px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.clouds img{
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    animation: animate calc(8s * var(--i)) linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateX(-150%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+/* clouds animation ends */
+.popup {
+    grid-area: popup;
+    z-index: 1;
+}
+
+.forex {
+    grid-area: forex;
+    position: relative;
+    background-color: rgba(106, 119, 110, 0.87);
+    color: rgb(7, 7, 0);
+}
+
+.forex p{
+    margin: 10px;
+}
+
+.version {
+    grid-area: version;
+    position: relative;
+    padding-top:20px;
+    justify-self: center;
+}
+
+.analysis {
+    grid-area: analysis;
+    position: relative;
+    padding-top:20px;
+    justify-self: center;
+    width: 100%;
+}
+
+.video {
+    grid-area: video;
+    position: relative;
+    padding-top:20px;
+    justify-self: center;
+}
+
+/*auto popup */
+
+.popup{
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30%;
+    display: none;
+}
+
+
+.contentBox{
+    position: relative;
+    width: 350px;
+    height: auto;
+    background: rgb(241, 160, 7); /*change color background*/
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-direction: column;
+}
+.contentBox .imgBox{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-self: center;
+    transform: translateY(-50px);
+}
+.contentBox .imgBox::before{
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgb(241, 160, 7);
+    border-radius: 50%;
+}
+.contentBox .imgBox .img{
+    position: relative;
+    max-width: 250px;
+}
+.contentBox .imgBox img{
+    position: relative;
+    max-width: 250px;
+    z-index: 1;
+}
+.contentBox .content{
+    position: relative;
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    padding-top: 0%;   
+}
+.contentBox .content h3{
+    color: #333;
+    line-height: 1em;
+    font-weight: 300;
+    font-size: 2em;
+
+}
+
+/* hide temporarily 
+.contentBox .content h2{
+    color: #ff4d54;
+    line-height: 1em;
+    font-size: 4em;  
+}
+
+.contentBox .content h2 span{
+    color: #333;
+    font-size: 0.75em;
+    /*text-transform: uppercase;
+}
+*/
+.contentBox .content p{
+    font-weight: 300;
+}
+
+.contentBox .content a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff4d54;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.close{
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: #fff url(../zzz-image/close.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;  
+}
+/*auto pop up*/
+
+/* DESKTOP*/
+/*/////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////*/
+
+@media screen and (min-width: 736px) {
+
+    .grid{
+        /* 5%  45% 45% 5% = means we have 4 frames occupying certain percentage of screen*/
+        display: grid;
+        grid-template-columns: 35% 65%;
+        grid-template-areas: 
+        "navigationbar navigationbar"
+        "home home"
+        "popup popup"
+        "forex version"
+        "forex video"
+        "forex analysis"
+        ;
+        align-self: center;
+        align-items: center;
+        grid-gap: 5px;
+        
+    }
+
+    .navigationbar {
+        position: fixed;
+        width: 100%;
+        grid-area: navigationbar;
+         /*hidden nav bar variable assign*/
+         --nav-height: 120px;
+         height: var(--nav-height);
+         box-shadow: 0 0 10px rgba(0,0,0,0.2);
+         transition: transform 1.0s;
+         /*hidden nav bar variable assign*/
+        z-index: 1;
+    }
+
+    .nav {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        align-self: center;
+        background: #031321;
+        font-family: consolas;
+    }
+    
+    .nav a{
+        align-items: center;
+        align-self: center;
+        position: relative;
+        display: inline-block;
+        padding: 10px 10px;
+        color: #2196f3;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 20px;
+        overflow: hidden;
+        transition: 0.2s;
+        border-radius: 8px;
+    }  
+    /*neo light start*/
+    a:hover{
+        color: #255784;
+        background: #2196f3;
+        box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3; 
+        transition-delay: 1s;
+    }
+    
+    
+    a span{
+        position: absolute;
+        display: block;
+    }
+    
+    a span:nth-child(1){
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #2196f3); 
+    }
+    
+    a:hover span:nth-child(1){
+        left: 100%;
+        transition: 1s;
+    }
+    
+    a span:nth-child(3){
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #2196f3); 
+    }
+    
+    a:hover span:nth-child(3){
+        right: 100%;
+        transition: 1s;
+        transition-delay: 0.5s;
+    }
+    
+    a span:nth-child(2){
+        top: -100%;
+        right: 0%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #2196f3); 
+    }
+    
+    a:hover span:nth-child(2){
+        top: 100%;
+        transition: 1s;
+        transition-delay: 0.25s;
+    }
+    a span:nth-child(4){
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #2196f3); 
+    }
+    
+    a:hover span:nth-child(4){
+        bottom: 100%;
+        transition: 1s;
+        transition-delay: 0.75s;
+    }
+    /*neo light end*/
+    
+    .home {
+        position: relative;
+        grid-area: home;
+        height: 140px;
+        align-self: right;
+        justify-self: right;
+        background-image: url(../zzz-image/BackgroundImage-visitor-desktop.jpg);
+        width: 100%;
+        height: 70vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .forex{
+        padding-top:20px;
+        padding-left: 5%;
+        padding-right: 5%;    }
+
+    .analysis {
+        grid-area: analysis;
+        position: relative;
+        min-height: 360px;
+        max-height: 360px;
+        max-width: 700px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .video {
+        padding-top:20px;
+    }
+    
+    /*auto popup*/
+    .popup{
+        min-height: 75vh;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 15%;
+        display: none;
+    }
+    
+        
+    .contentBox{
+        width: 650px;
+        height: 400px;
+        flex-direction: row;
+    }
+
+    .contentBox .imgBox{
+        margin-top: 15%;
+        height: 400px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contentBox .imgBox::before{
+        background: rgb(241, 160, 7);
+    }
+
+    .contentBox .content{
+        height: 400px;
+        width: 300px;
+        text-align: center;
+        align-self: center;
+        padding: 20px;
+        padding-top: 0%;
+    }
+
+    .close{
+        top: 20px;
+        right: 20px;
+        width: 40px;    
+    }
+        /*auto popup ends*/
+        
+}
+
