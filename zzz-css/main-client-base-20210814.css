@@ -43,7 +43,7 @@
     /*overflow: hidden; it means no scrolling down only screen*/ 
 }
 :root{
-    --header--height: 135px;
+    --header--height: 45px;
     scroll-padding-top: var(--header--height);
 }
 /* Webpage Layout */
@@ -57,17 +57,20 @@
         ". forex forex ."
         ". version version ."
         ". analysis analysis ."
+        ". FAQ FAQ ."
         ". video video ."
-        ". accordion accordion ."
 
     ;
     align-items: center;
     grid-gap: 5px;
+    position: relative;
 }
 /* NAVIGATION BAR//////////////////////////////////////////////////////////////////////////*/ 
 .navigationbar{
     grid-area: navigationbar;
-    position: fixed;
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
     max-height: var(--header--height);
     border-radius: 1px;
@@ -124,7 +127,7 @@
     transition: 0.2s;
     border-radius: 8px;
     font-family: consolas;
-    font-size: 1em;
+    font-size: 0.8em;
     display: inline-block; /*constrict the text not exceed the width of container if view port width decreases*/
 }
 
@@ -217,25 +220,37 @@ a:hover span:nth-child(4){
     grid-area: forex;
     width: 100%;
     border-radius: 5px;
-    background: cyan;
+    background: #cde8f8;
 }
 
-.forex h1, .forex p{
+.forex h1, .forex p, .version a, .version p{
     padding-left: 10px;
     padding-right: 10px;
     text-align: justify;
     display: inline-block;
 }
 
-.forex h1{
+.forex h1, .version h1, .analysis h1, .video h1{
     font-family: audiowide;
     font-size: 20px;
 }
 
-.forex p{
+.forex p, .version p{
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: 500;
+}
+.forex .boxOutline{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    width: 250px;
+    height: 300px;
+    border-radius: 25px;
+    background: #cde8f8;
+    box-shadow: inset -5px -5px 5px rgba(255,255,255,0.5),
+                inset 5px 5px 5px rgba(0, 0, 0, 0.1);
+    filter: blur(1px);
 }
 
 /*POP UP Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
@@ -355,8 +370,24 @@ a:hover span:nth-child(4){
     position: relative;
     justify-self: center;
     /*padding-top:20px;*/
-    
 }
+.version .joinus{
+    position: relative;
+    top: -5px;
+    left: 310px;
+    height: 50px;
+}
+.version .joinus2{
+    position: relative;
+    top: 5px;
+    left: 30px;
+    height: 50px;
+}
+.version h2{
+    font-family: audiowide;
+    font-size: 15px;
+}
+
 .analysis {
     grid-area: analysis;
     position: relative;
@@ -365,20 +396,31 @@ a:hover span:nth-child(4){
     /*padding-top:20px;*/
 }
 .analysis img{
-    border-radius: 5px;
-}
-.video {
-    grid-area: video;
     position: relative;
-    justify-self: center;
     border-radius: 5px;
 }
-.video video{
-    border-radius: 5px;
-}
+
 /* FAQs ACCORDION//////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.FAQ {
+    grid-area: FAQ;
+    position: relative;
+}
+.faqtitle1{
+    position: relative;
+    top: 20px;
+    left: 0px;
+    height: 50px;
+}
+.faqtitle2{
+    position: relative;
+    top: -30px;
+    left: 80px;
+    height: 50px;
+}
 .accordion {
-    grid-area: accordion;
+    position: relative;
+    top: -30px;
     max-width: 500px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -438,4 +480,13 @@ a:hover span:nth-child(4){
   }
   
 /* ENDS FAQs ACCORDION////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.video {
+    grid-area: video;
+    position: relative;
+    justify-self: center;
+    border-radius: 5px;
+}
+.video video{
+    border-radius: 5px;
+}
 /*ENDS Version to Video Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
