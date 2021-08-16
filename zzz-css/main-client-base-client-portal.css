@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Audiowide:300,400,500,600,700&display=swap');
+
+/*PRE LOADER the website///////////////////////////////////////////////////////////////////////////////////////////// */
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: lightgrey;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*horizontal alignment*/
+    align-items: center; /* vertical alignment*/
+    z-index: 99;
+}
+.loader a{
+    line-height: 1em;
+    font-weight: 600;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.disappearloader{
+    animation: vanish 1s forwards;
+}
+@keyframes vanish{
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/*ENDS PRE LOADER the website//////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+/* mobile version */
+
+*{ /* this code necessary for better margin of text on overall layout*/
+    margin: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box; /*this is necessary for animation to maintain the border of clouds */
+   /* overflow: visible; it means no scrolling down only screen */
+}
+:root{
+    --header--height: 45px;
+    scroll-padding-top: var(--header--height);
+}
+/* Webpage Layout */
+.grid{
+    display: grid;
+    grid-template-columns: 2% 48% 48% 2%;
+    grid-template-areas: 
+        ". aiRobottitle aiRobottitle ."
+        ". navigationbar navigationbar ."
+        ". home home ."
+        ". popup popup ."
+        ". FAQ FAQ ."
+
+    ;
+    align-items: center;
+    --grid-height: 5px;
+    grid-gap: var(--grid-height);
+    /*grid-gap: 5px;*/
+    position: relative;
+    /*background: turquoise;*/
+}
+/* NAVIGATION BAR etc//////////////////////////////////////////////////////////////////////////*/ 
+.aiRobottitle{
+    grid-area: aiRobottitle;
+    position: sticky;
+    top: 0px;
+    padding-top: 5px;
+    width: 100%;
+    background: whitesmoke;
+    /*box-shadow: 0 5px 15px rgba(0,0,0,0.2);*/
+    z-index: 2;
+}
+.aiRobottitle h1{ /*TITLE*/
+    margin-top: 0%;
+    width: 100%;
+    font-family: audiowide;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.navigationbar{
+    grid-area: navigationbar;
+    position: sticky;
+    top: 35px; /* adjust the level of navigation bar if scroll down fully appear*/
+    left: 0;
+    width: 100%;
+    max-height: var(--header--height);
+    border-radius: 1px;
+    background: white;
+    text-align: center;
+    z-index: 1;
+    /*hidden nav bar variable assign*/
+    --nav-height: 100px;
+    height: var(--nav-height);
+             /* box-shadow: 0 0 10px rgba(0,0,0,0.2);*/
+    transition: transform 1.5s;
+    /*hidden nav bar variable assign*/
+}
+/*hidden nav bar styling*/
+.nav--hidden{
+    transform: translateY(calc(-1*var(--nav-height)));
+    box-shadow: none;
+}
+ /*hidden nav bar styling*/
+.titlebetweenline{
+    content: '';
+    position: relative;
+    /*top: calc(var(--grid-height) * -1);*/
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: relative;  
+}
+.navName1{
+    position: relative;
+    top: calc(var(--grid-height) * -1); /*adjusted to hide the text behind when scrolling*/
+}
+.navName2{
+    position: relative;
+    top: calc(var(--grid-height) * -1); /*adjusted to hide the text behind when scrolling*/
+}
+.navName1, .navName2{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #031321;
+    padding-top: 3px;
+    border-radius: 5px;
+}
+
+
+.navName1 a, .navName2 a{
+    position: relative; /* necessary for span to identify the position*/
+    padding: 5px 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #2196f3;
+    overflow: hidden;
+    transition: 0.2s;
+    border-radius: 8px;
+    font-family: consolas;
+    font-size: 0.8em;
+    display: inline-block; /*constrict the text not exceed the width of container if view port width decreases*/
+}
+
+/*neo light start*/
+a:hover{
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3; 
+    transition-delay: 1s;
+}
+
+a span{
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+}
+
+a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+a span:nth-child(2){
+    top: -100%;
+    right: 0%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+/*neo light end*/
+/*END NAVIGATION BAR //////////////////////////////////////////////////////////////////////////*/ 
+
+/*HOME//////////////////////////////////////////////////////////////////////////////////////*/
+.home{
+    grid-area: home;
+    margin-top: calc(var(--header--height) - 25px);
+    position: relative;
+    align-self: center;
+    background-image: url(../zzz-image/BackgroundImage-visitor.jpg);
+    width: 100%;
+    height: 20vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+}
+/*ENDS HOME*/
+
+/*POP UP Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
+.popup {
+    grid-area: popup;
+    z-index: 99;
+}
+/*auto popup */
+.popup{
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30%;
+    display: none;
+}
+.contentBox{
+    position: relative;
+    width: 350px;
+    height: auto;
+    background: rgb(241, 160, 7); /*change color background*/
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-direction: column;
+}
+.contentBox .imgBox{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-self: center;
+    transform: translateY(-50px);
+}
+.contentBox .imgBox::before{
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgb(241, 160, 7);
+    border-radius: 50%;
+}
+.contentBox .imgBox .img{
+    position: relative;
+    max-width: 250px;
+}
+.contentBox .imgBox img{
+    position: relative;
+    max-width: 250px;
+    z-index: 1;
+}
+.contentBox .content{
+    position: relative;
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    padding-top: 0%;   
+}
+.contentBox .content h3{
+    color: #333;
+    line-height: 1em;
+    font-weight: 300;
+    font-size: 2em;
+
+}
+/* hide temporarily 
+.contentBox .content h2{
+    color: #ff4d54;
+    line-height: 1em;
+    font-size: 4em;  
+}
+
+.contentBox .content h2 span{
+    color: #333;
+    font-size: 0.75em;
+    /*text-transform: uppercase;
+}
+*/
+.contentBox .content p{
+    font-weight: 300;
+}
+.contentBox .content a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff4d54;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.close{
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: #fff url(../zzz-image/close.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;  
+}
+/*ENDs POP UP Styling Layout///////////////////////////////////////////////////////////////////////////////////////*/
+
+/*Version to Video Styling Layout///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* FAQs ACCORDION/////////////////////////////////////////////////////////////////////////////////////// */
+
+.FAQ {
+    grid-area: FAQ;
+    position: relative;
+}
+.faqtitle1{
+    position: relative;
+    top: 20px;
+    left: 0px;
+    height: 50px;
+}
+.faqtitle2{
+    position: relative;
+    top: -30px;
+    left: 80px;
+    height: 50px;
+}
+.referralLink{
+    position: relative;
+    top: -30px;
+    left: 150px;
+    height: 200px;
+}
+.accordion {
+    position: relative;
+    top: -30px;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    background: #009578;
+  }
+  
+  .accordion__label,
+  .accordion__content {
+    padding: 14px 20px;
+  }
+  
+  .accordion__label {
+    display: block;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+  }
+  
+  .accordion__label:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordion__label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+  }
+  
+  .accordion__content {
+    position: relative;
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 0.85em;
+    display: none;
+  }
+    /* Details of Accordion Styling///////////////////////////////////////// */
+    .accordion_content_details1{
+        position: relative;
+        top: 30px;
+        left: -140px;
+    }
+    .accordion_content_details1 img{
+        border-radius: 10px;
+    }
+
+    .accordion_content_details2-1{
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+    .accordion_content_details2-1 img{
+        max-width: 530px;
+        border-radius: 10px;
+    }
+    .accordion_content_details2-2{
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+    .accordion_content_details2-2 img{
+        max-width: 530px;
+        border-radius: 10px;
+    }
+    .accordion_content_details2-3{
+        position: relative;
+        top: -20px;
+        left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details2-4{
+        position: relative;
+        top: 0px;
+        left: 30px;
+    }
+    .accordion_content_details2-4 img{
+        max-width: 530px;
+        border-radius: 10px;
+    }
+    .accordion_content_details2-5{
+        position: relative;
+        top: 0px;
+        left: 60px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details3-1{
+        position: relative;
+        top: 0px;
+        left: 20px;
+    }
+    .accordion_content_details3-1 img{
+        max-width: 530px;
+    }
+    .accordion_content_details4-1{
+        position: relative;
+        top: 0px;
+        left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details5-1{
+        position: relative;
+        top: 0px;
+        left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details5-2{
+        position: relative;
+        top: 0px;
+        left: 30px;
+    }
+    .accordion_content_details5-2 img{
+        max-width: 530px;
+    }
+    .accordion_content_details6-1{
+        position: relative;
+        top: 0px;
+        left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details6-2{
+        position: relative;
+        top: 0px;
+        left: 30px;
+    }
+    .accordion_content_details6-2 img{
+        max-width: 530px;
+    }
+    .accordion_content_details7-1{
+        position: relative;
+        top: 0px;
+        left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    /* ENDS Details of Accordion Styling///////////////////////////////////////// */
+  .accordion__input {
+    display: none;
+  }
+  
+  .accordion__input:checked ~ .accordion__content {
+    display: block;
+  }
+  
+  .accordion__input:checked ~ .accordion__label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+  }
+  
+/* ENDS FAQs ACCORDION///////////////////////////////////////////////////////////////////////////////////// */
+
+/*ENDS Version to Video Styling Layout////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/*  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
+@media screen and (min-width: 736px) {
+
+    .grid{
+        display: grid;
+        grid-template-columns: 2% 48% 48% 2%;
+        grid-template-areas: 
+        ". aiRobottitle aiRobottitle ."
+        ". navigationbar navigationbar ."
+        ". home home ."
+        ". popup popup ."
+        ". FAQ . ."
+        ;
+        align-items: initial; /* necessary to align items at the end of each item*/
+        --grid-height: 5px;
+        grid-gap: var(--grid-height);
+        /*grid-gap: 5px;*/
+        position: relative;
+        /*background: turquoise;*/
+    }
+
+    /* WEB PAGE LAYOUT /////////////////////////////  */
+
+    .home{
+        grid-area: home;
+        margin-top: calc(var(--header--height) - 25px);
+        position: relative;
+        align-self: center;
+        background-image: url(../zzz-image/BackgroundImage-visitor-desktop.jpg);
+        width: 100%;
+        height: 40vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px;
+    }
+    .popup {
+        grid-area: popup;
+        position: fixed;
+        top: 90px;
+        z-index: 99;
+    }
+    
+    /* WEB PAGE LAYOUT /////////////////////////////  */
+}
