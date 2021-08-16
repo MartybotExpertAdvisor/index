@@ -193,8 +193,7 @@
                                 ✅Account Bonus: Yes, I want to receive the bonus. <br>
                                 ✅Leverage: 1:888
                             </p>
-                        </div>                 
-                                    
+                        </div>                                
                     </div>
                 </div>
                 <div>
@@ -247,6 +246,7 @@
                         <div class="accordion_content_details6-2">
                             <img src="../../zzz-image/accountSetup.png" class="accountSetup">
                         </div>
+                    </div>
                 </div>
                 <div>
                     <input type="checkbox" name="example_accordion" id="section7" class="accordion__input">
@@ -259,10 +259,51 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             approximately after the payment has been made.<br>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
         <!--ENDS ACCORDION-------------------------------------------------------------------------------->
+        <div class="withdrawal">
+            <div class="calculateWithdrawal">
+                <p>Withdrawal Computation</p> <br>
+                <p>Running Equity:</p>
+                <input type="number" id="RunningEquity"/><br><br>
+                <p>Maintaining Equity:</p>
+                <input type="number" id="MaintainEquity"/><br><br>
+        
+                <!--Operators Selection
+                <select id="operators">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="/">/</option>
+                <option value="X">X</option>
+                </select>
+                -->
+                <!--ENDS Operators Selection-->
+
+                <input type="number" id="result"><br>
+
+                <button onclick="calcWithdrawal();">Check recommended Maximum Withdrawal:</button><br>
+
+                <script>
+                    function calcWithdrawal()
+                        {
+                    var RunningEquity = parseFloat(document.getElementById('RunningEquity').value);
+                    var MaintainEquity = parseFloat(document.getElementById('MaintainEquity').value);
+
+                    document.getElementById('result').value = (RunningEquity-MaintainEquity)*0.8;
+                    document.getElementById('RunningEquity').value = "";
+                    document.getElementById('MaintainEquity').value = "";
+                        }
+                </script>
+
+            </div>
+        </div>
+        <div class="lastdivision">
+
+        </div>
+    
     </div>
     <!-- ENDS PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
 
