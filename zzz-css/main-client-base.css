@@ -57,7 +57,7 @@
         ". popup popup ."
         ". forex forex ."
         ". version version ."
-        ". analysis analysis ."
+        ". Portfolio Portfolio ."
         ". FAQ FAQ ."
         ". video video ."
 
@@ -67,6 +67,7 @@
     grid-gap: var(--grid-height);
     /*grid-gap: 5px;*/
     position: relative;
+    margin-right: 10px;
     /*background: turquoise;*/
 }
 /* NAVIGATION BAR etc//////////////////////////////////////////////////////////////////////////*/ 
@@ -252,7 +253,7 @@ a:hover span:nth-child(4){
     display: inline-block;
 }
 
-.forex h1, .version h1, .analysis h1, .video h1{
+.forex h1, .version h1, .Portfolio h1, .video h1{
     font-family: audiowide;
     font-size: 20px;
 }
@@ -262,6 +263,7 @@ a:hover span:nth-child(4){
     font-size: 15px;
     font-weight: 500;
 }
+
 /*
 .forex .boxOutline{
     position: relative;
@@ -417,16 +419,27 @@ a:hover span:nth-child(4){
     font-size: 15px;
 }
 
-.analysis {
-    grid-area: analysis;
+.Portfolio {
+    grid-area: Portfolio;
     position: relative;
-    width: 100%;
     justify-self: center;
     /*padding-top:20px;*/
 }
-.analysis img{
+.Portfolio .referralLink{
     position: relative;
+    top: -25px;
     border-radius: 5px;
+    width: 100%;
+}
+.Portfolio a{
+    text-decoration: none;
+}
+.Portfolio .clickhere{
+    position: relative;
+    right: -105px;
+    top: -25px;
+    border-radius: 5px;
+    height: 37px;
 }
 
 /* FAQs ACCORDION//////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -513,11 +526,12 @@ a:hover span:nth-child(4){
     grid-area: video;
     position: relative;
     justify-self: center;
+    border-radius: 5px;
 }
 .video video{
-    width: 100%;
+    
+    width: 400px;
     padding: 5%;
-    border-radius: 5px;
 }
 /*ENDS Version to Video Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -534,7 +548,7 @@ a:hover span:nth-child(4){
         ". home home ."
         ". popup popup ."
         ". forex version ."
-        ". forex analysis ."
+        ". forex Portfolio ."
         ". forex . ."
         ". FAQ video ."
         ;
