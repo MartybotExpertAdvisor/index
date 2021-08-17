@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <!--PRE LOADER to COMPLETE WEB PAGE contents---------------------------------------------------------------------------------------->
+<!--PRE LOADER to COMPLETE WEB PAGE contents---------------------------------------------------------------------------------------->
     <!-- Pre loading website -->
     <div class="loader">
         <img src="../../zzz-image/load-gif.gif" alt="loading gif">
@@ -123,6 +123,7 @@
             </div>
     
         </div>
+        
         <script>
             const popup = document.querySelector('.popup');
             const close = document.querySelector('.close');
@@ -147,7 +148,7 @@
             })
     
         </script>
-        <!-- auto pop up ends----------------------------------------------------------------------------------------------------------->
+        <!--auto pop up ends----------------------------------------------------------------------------------------------------------->
         
         <!--ACCORDION-------------------------------------------------------------------------------->
         <div class="FAQ" id="FAQ">
@@ -264,48 +265,50 @@
             </div>
         </div>
         <!--ENDS ACCORDION-------------------------------------------------------------------------------->
-        <div class="withdrawal">
-            <div class="calculateWithdrawal">
-                <p>Withdrawal Computation</p> <br>
-                <p>Running Equity:</p>
-                <input type="number" id="RunningEquity"/><br><br>
-                <p>Maintaining Equity:</p>
-                <input type="number" id="MaintainEquity"/><br><br>
-        
-                <!--Operators Selection
-                <select id="operators">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="/">/</option>
-                <option value="X">X</option>
-                </select>
-                -->
-                <!--ENDS Operators Selection-->
 
-                <input type="number" id="result"><br>
-
-                <button onclick="calcWithdrawal();">Check recommended Maximum Withdrawal:</button><br>
-
-                <script>
-                    function calcWithdrawal()
-                        {
-                    var RunningEquity = parseFloat(document.getElementById('RunningEquity').value);
-                    var MaintainEquity = parseFloat(document.getElementById('MaintainEquity').value);
-
-                    document.getElementById('result').value = (RunningEquity-MaintainEquity)*0.8;
-                    document.getElementById('RunningEquity').value = "";
-                    document.getElementById('MaintainEquity').value = "";
-                        }
-                </script>
-
+        <!-- Withdrawal Form---------------------------------------------------------------->
+        <div class="withdrawalFormBACK">
+            <div class="withdrawalForm">
+                <div class="bank">
+                    <img src="../../zzz-image/bank.png">
+                </div>
+                <div class="withdrawalTitle">
+                    <div class="withdrawalCalculation"> Withdrawal Computation
+                </div>
+                <!--FORM CREATION------------------------------------------------------------>
+                <form>
+                    <div class="field">
+                        <div class="fas RunningEquityIcon">
+                            <img src="../../zzz-image/RunningEquityIcon.png" class="RunningEquityIcon">
+                        </div>
+                        <input type="number"
+                        placeholder="Running Equity"/>
+                    </div>
+                    <div class="field">
+                        <div class="fas MaintainingEquityIcon">
+                            <img src="../../zzz-image/MaintainingEquityIcon.png" class="MaintainingEquityIcon">
+                        </div>
+                        <input type="number"
+                        placeholder="Maintaining Equity"/>
+                    </div>
+                    <div class="field">
+                        <div class="fas ResultIcon">
+                            <img src="../../zzz-image/ResultIcon.png" class="ResultIcon">
+                        </div>
+                        <input type="number"
+                        placeholder="Withdrawable Cash"/>
+                    </div>
+                    <div class="checkAmount">
+                        <button>Check Amount</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="lastdivision">
+        <!-- ENDS Withdrawal Form---------------------------------------------------------------->
 
-        </div>
-    
     </div>
-    <!-- ENDS PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
+    <!-- ENDS PAGE GRID ---------------------------------------------------------------------------------------------------------------------->   
+
 
     <!--DISABLE RIGHT CLICK, CTRL, F12 to explore the contents of WEB PAGE------------------------------------------------------------->
     <script>
@@ -370,5 +373,6 @@
 			//Javascript ENDS here
         </script>
         <!--DISABLE RIGHT CLICK, CTRL, F12 to explore the contents of WEB PAGE------------------------------------------------------------->
+
 </body>
 </html>
