@@ -96,60 +96,7 @@
                 <img src="../../zzz-image/cloud5.png" style="--i:5;">
             </div>
             -->
-        </div>
-
-        <!--AUTO POP UP-------------------------------------------------------------------------------------->
-        <div class="popup">
-            <div class="contentBox">
-                <div class="close">
-    
-                </div>
-                <div class="imgBox">
-                    <img src="../../zzz-image/gift.png">
-                </div>
-                <div class="content" >
-                    <div>
-                        <h3>Algo Updates...</h3>
-                        <h2>Coming Soon!!!
-                            <!--
-                            <sup>Php</sup><span>/mo</span>
-                            -->
-                        </h2>
-                        <p>Live Testing Phase On-going</p>
-                        <a href="#" id="subscribe">Subscribe Now</a>
-                    </div>
-                    
-                </div>
-            </div>
-    
-        </div>
-        
-        <script>
-            const popup = document.querySelector('.popup');
-            const close = document.querySelector('.close');
-    
-            window.onload = function()
-                        {
-                            setTimeout
-                            (
-                                function()
-                                {
-                                    popup.style.display = "block"
-                                    //add some time delay to show popup
-                                }, 5000)
-                        }
-            
-            close.addEventListener('click', () => {
-                popup.style.display = "none";
-            })
-    
-            subscribe.addEventListener('click', () => {
-                popup.style.display = "none";
-            })
-    
-        </script>
-        <!--auto pop up ends----------------------------------------------------------------------------------------------------------->
-        
+        </div>        
         <!--ACCORDION-------------------------------------------------------------------------------->
         <div class="FAQ" id="FAQ">
             <div>
@@ -276,34 +223,105 @@
                     <div class="withdrawalCalculation"> Withdrawal Computation
                 </div>
                 <!--FORM CREATION------------------------------------------------------------>
-                <form>
+                <div class="formFrame">
                     <div class="field">
                         <div class="fas RunningEquityIcon">
                             <img src="../../zzz-image/RunningEquityIcon.png" class="RunningEquityIcon">
                         </div>
-                        <input type="number"
+                        <input type="text" id="RunningEquity"
                         placeholder="Running Equity"/>
                     </div>
                     <div class="field">
                         <div class="fas MaintainingEquityIcon">
                             <img src="../../zzz-image/MaintainingEquityIcon.png" class="MaintainingEquityIcon">
                         </div>
-                        <input type="number"
+                        <input type="text" id="MaintainingEquity"
                         placeholder="Maintaining Equity"/>
                     </div>
                     <div class="field">
                         <div class="fas ResultIcon">
                             <img src="../../zzz-image/ResultIcon.png" class="ResultIcon">
                         </div>
-                        <input type="number"
+                        <input type="text" id="WithdrawableCash"
                         placeholder="Withdrawable Cash"/>
                     </div>
                     <div class="checkAmount">
-                        <button>Check Amount</button>
+                        <button onclick="Withdrawalcomputation();">Check Amount</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
+        <script>
+            function Withdrawalcomputation(){
+                    /*Variable Declaration  &&  || */
+                    var RunningEquity = parseFloat(document.getElementById('RunningEquity').value); //Running Equity of the Account
+                    var MaintainingEquity = parseFloat(document.getElementById('MaintainingEquity').value); //Maintaining Equity of the Account
+                    var CreditpercentReduction = (1 - 0.2); // Credit Bonus Amount Percentage when you used in trading
+
+                    // Guard Clause
+                    //check if empty
+                    if(document.getElementById('RunningEquity').value.length == 0 && document.getElementById('MaintainingEquity').value.length == 0){ 
+                        return alert("Please input a value in the Running Equity\r\nand Maintaining Equity");
+                    }
+                    if(document.getElementById('RunningEquity').value.length == 0){ 
+                        return alert("Please input a value in the Running Equity");
+                    }
+                    if(document.getElementById('MaintainingEquity').value.length == 0){ 
+                        return alert("Please input a value in the Maintaining Equity");
+                    }
+                    
+                    //check if number is entered
+                    if(isNaN(RunningEquity) && isNaN(MaintainingEquity)){ 
+
+                        //Reset the place Holder to default since you input incorrect
+                        document.getElementById('WithdrawableCash').value = "";
+                        document.getElementById('WithdrawableCash').placeholder = "Withdrawable Cash";
+
+                        document.getElementById('RunningEquity').value = "";
+                        document.getElementById('RunningEquity').placeholder = "Running Equity";
+                        
+                        document.getElementById('MaintainingEquity').value = "";
+                        document.getElementById('MaintainingEquity').placeholder = "Maintaining Equity"; 
+
+                        return alert("Please input the Running Equity\r\nand Maintaining Equity as Number");
+                    }
+                    if(isNaN(RunningEquity)){ 
+
+                        //Reset the place Holder to default since you input incorrect
+                        document.getElementById('WithdrawableCash').value = "";
+                        document.getElementById('WithdrawableCash').placeholder = "Withdrawable Cash";
+
+                        document.getElementById('RunningEquity').value = "";
+                        document.getElementById('RunningEquity').placeholder = "Running Equity";
+
+                        return alert("Please input the Running Equity as Number");
+                    }
+                    if(isNaN(MaintainingEquity)){ 
+
+                        //Reset the place Holder to default since you input incorrect
+                        document.getElementById('WithdrawableCash').value = "";
+                        document.getElementById('WithdrawableCash').placeholder = "Withdrawable Cash";
+
+                        document.getElementById('MaintainingEquity').value = "";
+                        document.getElementById('MaintainingEquity').placeholder = "Maintaining Equity"; 
+
+                        return alert("Please input the Maintaining Equity as Number");
+                    }
+                    // END Guard Clause
+
+                    /*Method of Computation*/
+                    //1. Set Value of Running equity to blank so that we can change the place holder to desired text message
+                    //2. Then Set Value of Running equity to new Place holder Value
+                    document.getElementById('WithdrawableCash').value = "";
+                    document.getElementById('WithdrawableCash').placeholder = "Result: $" + ((RunningEquity-MaintainingEquity)*CreditpercentReduction);
+
+                    document.getElementById('RunningEquity').value = ""; 
+                    document.getElementById('RunningEquity').placeholder = "You input: $" + RunningEquity; 
+                    
+                    document.getElementById('MaintainingEquity').value = "";
+                    document.getElementById('MaintainingEquity').placeholder = "You input: $" + MaintainingEquity;
+                }
+        </script>
         <!-- ENDS Withdrawal Form---------------------------------------------------------------->
 
     </div>
