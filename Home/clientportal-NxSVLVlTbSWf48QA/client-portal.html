@@ -225,19 +225,34 @@
                 <!--FORM CREATION------------------------------------------------------------>
                 <div class="formFrame">
                     <div class="field">
-                        <div class="fas RunningEquityIcon">
-                            <img src="../../zzz-image/RunningEquityIcon.png" class="RunningEquityIcon">
+                        <div class="fas FloatinglossIcon">
+                            <img src="../../zzz-image/Floatingloss.png" class="FloatinglossIcon">
                         </div>
-                        <input type="text" id="RunningEquity"
-                        placeholder="Running Equity"/>
+                        <input type="number" id="Floatingloss"
+                        placeholder="Floating Loss"/>
                     </div>
                     <div class="field">
-                        <div class="fas MaintainingEquityIcon">
-                            <img src="../../zzz-image/MaintainingEquityIcon.png" class="MaintainingEquityIcon">
+                        <div class="fas BalanceIcon">
+                            <img src="../../zzz-image/Balance.png" class="BalanceIcon">
                         </div>
-                        <input type="text" id="MaintainingEquity"
-                        placeholder="Maintaining Equity"/>
+                        <input type="number" id="Balance"
+                        placeholder="Balance"/>
                     </div>
+                    <div class="field">
+                        <div class="fas CreditIcon">
+                            <img src="../../zzz-image/Credit.png" class="CreditIcon">
+                        </div>
+                        <input type="number" id="Credit"
+                        placeholder="Credit"/>
+                    </div>
+                    <div class="field">
+                        <div class="fas DefaultLotIcon">
+                            <img src="../../zzz-image/DefaultLot.png" class="DefaultLotIcon">
+                        </div>
+                        <input type="number" id="DefaultLot"
+                        placeholder="Default Lot (Buy/Sell)"/>
+                    </div>
+                
                     <div class="field">
                         <div class="fas ResultIcon">
                             <img src="../../zzz-image/ResultIcon.png" class="ResultIcon">
@@ -245,6 +260,22 @@
                         <input type="text" id="WithdrawableCash"
                         placeholder="Withdrawable Cash"/>
                     </div>
+                    <br><br>
+                    <div>
+                        <input type="checkbox" id="checkboxFloatingloss" onclick="mycheckboxfunction()"/>
+                        <label for="checkboxFloatingloss">Your Floating Loss is Positive?</label>
+                    </div>
+                    
+                    <div class="field">
+                        <div class="fas checkboxFloatinglossIcon">
+                            <img src="../../zzz-image/checkboxFloatingloss.png" class="checkboxFloatinglossIcon">
+                        </div>
+                        <div class="divCheckbox">
+                            <input type="text" id="confirmation"
+                            placeholder="No"/>
+                        </div>
+                    </div>
+                    
                     <div class="checkAmount">
                         <button onclick="Withdrawalcomputation();">Check Amount</button>
                     </div>
@@ -252,75 +283,230 @@
             </div>
         </div>
         <script>
+            //On Flaoting GAIN SCENARIO
+            function mycheckboxfunction(){
+                        var checkbox = document.getElementById("checkboxFloatingloss");
+                        var floatingGainApprovedtext = document.getElementById("floatingGainApprovedtext");
+                        if(checkbox.checked == true){
+                            document.getElementById('confirmation').value = "Yes";
+                        }
+                        else{
+                            document.getElementById('confirmation').value = "No";
+                        }
+                    }
             function Withdrawalcomputation(){
                     /*Variable Declaration  &&  || */
-                    var RunningEquity = parseFloat(document.getElementById('RunningEquity').value); //Running Equity of the Account
-                    var MaintainingEquity = parseFloat(document.getElementById('MaintainingEquity').value); //Maintaining Equity of the Account
-                    var CreditpercentReduction = (1 - 0.2); // Credit Bonus Amount Percentage when you used in trading
+                    const Floatingloss = parseFloat(document.getElementById('Floatingloss').value); //Floating loss of the Account
+                    const Balance = parseFloat(document.getElementById('Balance').value); //Balance of the Account
+                    const Credit = parseFloat(document.getElementById('Credit').value); //Credit of the Account
+                    const DefaultLot = parseFloat(document.getElementById('DefaultLot').value); //Default Lot of the Account
+                    const LotConversion = 10000; //Conversion of Default Lot to Account Trading Value
+                    const AccountTradingValue = DefaultLot * LotConversion;
+                    const MinimumWithdrawableCash = 100; // Minimum amount that you can withdraw
+                    var confirmation = document.getElementById('confirmation').value; //Confirmation if Floating is positive gain
 
-                    // Guard Clause
-                    //check if empty
-                    if(document.getElementById('RunningEquity').value.length == 0 && document.getElementById('MaintainingEquity').value.length == 0){ 
-                        return alert("Please input a value in the Running Equity\r\nand Maintaining Equity");
-                    }
-                    if(document.getElementById('RunningEquity').value.length == 0){ 
-                        return alert("Please input a value in the Running Equity");
-                    }
-                    if(document.getElementById('MaintainingEquity').value.length == 0){ 
-                        return alert("Please input a value in the Maintaining Equity");
-                    }
-                    
-                    //check if number is entered
-                    if(isNaN(RunningEquity) && isNaN(MaintainingEquity)){ 
-
-                        //Reset the place Holder to default since you input incorrect
-                        document.getElementById('WithdrawableCash').value = "";
-                        document.getElementById('WithdrawableCash').placeholder = "Withdrawable Cash";
-
-                        document.getElementById('RunningEquity').value = "";
-                        document.getElementById('RunningEquity').placeholder = "Running Equity";
-                        
-                        document.getElementById('MaintainingEquity').value = "";
-                        document.getElementById('MaintainingEquity').placeholder = "Maintaining Equity"; 
-
-                        return alert("Please input the Running Equity\r\nand Maintaining Equity as Number");
-                    }
-                    if(isNaN(RunningEquity)){ 
-
-                        //Reset the place Holder to default since you input incorrect
-                        document.getElementById('WithdrawableCash').value = "";
-                        document.getElementById('WithdrawableCash').placeholder = "Withdrawable Cash";
-
-                        document.getElementById('RunningEquity').value = "";
-                        document.getElementById('RunningEquity').placeholder = "Running Equity";
-
-                        return alert("Please input the Running Equity as Number");
-                    }
-                    if(isNaN(MaintainingEquity)){ 
-
-                        //Reset the place Holder to default since you input incorrect
-                        document.getElementById('WithdrawableCash').value = "";
-                        document.getElementById('WithdrawableCash').placeholder = "Withdrawable Cash";
-
-                        document.getElementById('MaintainingEquity').value = "";
-                        document.getElementById('MaintainingEquity').placeholder = "Maintaining Equity"; 
-
-                        return alert("Please input the Maintaining Equity as Number");
-                    }
-                    // END Guard Clause
+                    const CreditpercentReduction = (1 - 0.2); // Credit Bonus Amount Percentage when you used in trading
 
                     /*Method of Computation*/
                     //1. Set Value of Running equity to blank so that we can change the place holder to desired text message
-                    //2. Then Set Value of Running equity to new Place holder Value
-                    document.getElementById('WithdrawableCash').value = "";
-                    document.getElementById('WithdrawableCash').placeholder = "Result: $" + ((RunningEquity-MaintainingEquity)*CreditpercentReduction);
-
-                    document.getElementById('RunningEquity').value = ""; 
-                    document.getElementById('RunningEquity').placeholder = "You input: $" + RunningEquity; 
+                    //2. Then Set Value of Floating Loss, Balance, etc... to new Place holder Value
+                    //3. Check if Balance is greater than Credit
+                            //Gain computation inclusion of Credit reduction if needed
+                            function GainComputation(){
+                                //Guard close if Credit is so small to include
+                                if(Credit < 50){ // Credit is not too big to affect the Trading Account and no need to include on Compuation
+                                    var GainValue = (Balance + Credit - AccountTradingValue)
+                                    return GainValue;
+                                }
+                                var GainValue = (Balance + Credit - AccountTradingValue) * CreditpercentReduction; // Credit is too big to affect the Trading Account and need to include on Compuation
+                                
+                                return GainValue;
+                            }
+                            //console.log("GainComputation Value:" + GainComputation());
                     
-                    document.getElementById('MaintainingEquity').value = "";
-                    document.getElementById('MaintainingEquity').placeholder = "You input: $" + MaintainingEquity;
-                }
+                    //CLASS OOP//////////////////////////////////////////////////////////////////////////
+                    class InputAlert { //Alert Message if Input is blank or error
+                        constructor (AccountInput){
+                            this.AccountInput = AccountInput;
+                        }
+                        inputMessage() {
+                            alert("Please input a value in the " + this.AccountInput + " box");
+                        }    
+                    }
+
+                    class sorryAlert { //Alert Message if no available Balance
+                        constructor (TradingValue, TradingLabel){
+                            this.TradingValue = TradingValue;
+                            this.TradingLabel = TradingLabel;
+
+                        }
+                        sorryMessage() {
+                        alert("Sorry your " + this.TradingLabel + " of " + this.TradingValue + " will have significant affect\r\non your Trading. Thus, we don't recommend any withdrawal as of the moment 💔...");
+                        }       
+                    }
+
+                    //Overwrite the input with Default Place holder Label when a mistake is made InputBox
+                    class ReplacePlaceHolderInput {
+                        constructor (placeholderBox){
+                            this.placeholderBox = placeholderBox;
+                        }
+
+                        OverwritePlaceholder(){
+                            if(this.placeholderBox == "Floating Loss"){
+                                document.getElementById('Floatingloss').value = "";
+                                document.getElementById('Floatingloss').placeholder = "Floating Loss";
+                            }
+                            if(this.placeholderBox == "Balance"){
+                                document.getElementById('Balance').value = "";
+                                document.getElementById('Balance').placeholder = "Balance";
+                            }
+                            if(this.placeholderBox == "Credit"){
+                                document.getElementById('Credit').value = "";
+                                document.getElementById('Credit').placeholder = "Credit";
+                            }
+                            if(this.placeholderBox == "Default Lot"){
+                                document.getElementById('DefaultLot').value = "";
+                                document.getElementById('DefaultLot').placeholder = "Default Lot";
+                            }
+                        }
+                    }
+                    //ENDS CLASS OOP//////////////////////////////////////////////////////////////////////////
+
+                    // Guard Clause ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    
+                    //Check if EMPTY (next line annotation \r\n) old alert("Please input a value in the Floating Loss and Balance");
+                    if(document.getElementById('Floatingloss').value.length == 0 && document.getElementById('Balance').value.length == 0){ 
+                        const myInputAlert = new InputAlert("Floating Loss and Balance");    
+                        return myInputAlert.inputMessage();
+                    }
+                    if(document.getElementById('Floatingloss').value.length == 0){ 
+                        const myInputAlert = new InputAlert("Floating Loss");    
+                        return myInputAlert.inputMessage();
+                    }
+                    if(document.getElementById('Balance').value.length == 0){ 
+                        const myInputAlert = new InputAlert("Balance");    
+                        return myInputAlert.inputMessage();
+                    }
+                    if(document.getElementById('Credit').value.length == 0){ 
+                        const myInputAlert = new InputAlert("Credit");    
+                        return myInputAlert.inputMessage();
+                    }
+                    if(document.getElementById('DefaultLot').value.length == 0){ 
+                        const myInputAlert = new InputAlert("Default Lot");    
+                        return myInputAlert.inputMessage();
+                    }
+                    //CHECK if Input is not a number/*||*/////////////////////////////////////
+                    if(isNaN(Floatingloss)){ 
+
+                        //Reset the place Holder to default since you input incorrect        
+                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Floating Loss");  //Overwrite the placeholder label to default name  
+                        myReplacePlaceHolderInput.OverwritePlaceholder();
+
+                        const myInputAlert = new InputAlert("Floating Loss");    
+                        return myInputAlert.inputMessage();
+                    }
+                    if(isNaN(Balance)){ 
+
+                        //Reset the place Holder to default since you input incorrect
+                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Balance");  //Overwrite the placeholder label to default name  
+                        myReplacePlaceHolderInput.OverwritePlaceholder();
+
+                        const myInputAlert = new InputAlert("Balance");    
+                        return myInputAlert.inputMessage();
+                    }
+
+                    if(isNaN(Credit)){ 
+
+                        //Reset the place Holder to default since you input incorrect
+                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Credit");  //Overwrite the placeholder label to default name  
+                        myReplacePlaceHolderInput.OverwritePlaceholder();
+
+
+                        const myInputAlert = new InputAlert("Credit");    
+                        return myInputAlert.inputMessage();
+                    }
+                    if(isNaN(DefaultLot)){ 
+
+                        //Reset the place Holder to default since you input incorrect
+                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Default Lot");  //Overwrite the placeholder label to default name  
+                        myReplacePlaceHolderInput.OverwritePlaceholder();
+
+                        const myInputAlert = new InputAlert("Default Lotv (Buy/Sell)");    
+                        return myInputAlert.inputMessage();
+                    }
+
+                    if(Floatingloss > 0){
+                        if(confirmation == ""){ // "" means floating loss is not yet confirm by trader if positve or negative
+                        //Confirm if trading account is floating gain  
+                        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ". If Yes, Check the tick mark and press again the Check Amount button");
+                        }
+                        if(confirmation == "No"){ // "" means floating loss is not yet confirm by trader if positve or negative
+                        //Confirm if trading account is floating gain  
+                        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ". If Yes, Check the tick mark and press again the Check Amount button");
+                        }
+                    }
+                    
+                    // END Guard Clause ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                    //CLASS STRUCTURE out the Place Holder Label when Calculation is all OK//////////////////
+                    class resultPlaceHolderInput {
+                        constructor (placeholderBox){
+                            this.placeholderBox = placeholderBox;
+                        }
+
+                        ResultPlaceholder(){
+                            if(this.placeholderBox == "Floating Loss"){
+                                document.getElementById('Floatingloss').value = "";
+                                document.getElementById('Floatingloss').placeholder = "You input: $" + Floatingloss;
+                            }
+                            if(this.placeholderBox == "Balance"){
+                                document.getElementById('Balance').value = "";
+                                document.getElementById('Balance').placeholder = "You input: $" + Balance;
+                            }
+                            if(this.placeholderBox == "Credit"){
+                                document.getElementById('Credit').value = "";
+                                document.getElementById('Credit').placeholder = "You input: $" + Credit;
+                            }
+                            if(this.placeholderBox == "Default Lot"){
+                                document.getElementById('DefaultLot').value = "";
+                                document.getElementById('DefaultLot').placeholder = "You input: " + DefaultLot + " Lot" ;
+                            }
+                            if(this.placeholderBox == "Withdrawable Cash"){
+                                document.getElementById('WithdrawableCash').value = "";
+                                if(Floatingloss < -100){
+                                    // Floating Loss is noticeable to affect the Trading Account and withrawal is not recommended
+                                    const mysorryAlert = new sorryAlert(Floatingloss, "Floating Loss");    
+                                    return mysorryAlert.sorryMessage(); //This RETURN declaration with Variable assignment is very important
+                                }
+                                // Return if Credit is 50%/60% of that Account Trading Value 
+                                if(Credit > AccountTradingValue * 0.4){
+                                    const mysorryAlert = new sorryAlert(Credit, "Credit");    
+                                    return mysorryAlert.sorryMessage();
+                                }
+                                document.getElementById('WithdrawableCash').placeholder = "Result: $" + GainComputation();
+                            }
+                        }
+                    }
+
+                    // PRINT OUTPUT on Withdrawl Calculation FORM///////////////////////////////////////////////////////////////////////
+                    const myresultFloating = new resultPlaceHolderInput("Floating Loss");  //Overwrite the placeholder label with Calculation Result
+                    myresultFloating.ResultPlaceholder();
+
+                    const myBalance = new resultPlaceHolderInput("Balance");  //Overwrite the placeholder label with Calculation Result
+                    myBalance.ResultPlaceholder();
+
+                    const myresultCredit = new resultPlaceHolderInput("Credit");  //Overwrite the placeholder label with Calculation Result
+                    myresultCredit.ResultPlaceholder();
+
+                    const myresultDefaultLot = new resultPlaceHolderInput("Default Lot");  //Overwrite the placeholder label with Calculation Result
+                    myresultDefaultLot.ResultPlaceholder();
+
+                    const myresultWithdrawableCash = new resultPlaceHolderInput("Withdrawable Cash");  //Overwrite the placeholder label with Calculation Result
+                    myresultWithdrawableCash.ResultPlaceholder();
+
+                    // Return if Gain is less than 100usd
+               
+            }
         </script>
         <!-- ENDS Withdrawal Form---------------------------------------------------------------->
 
