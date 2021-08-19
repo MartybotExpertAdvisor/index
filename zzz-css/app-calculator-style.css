@@ -199,6 +199,7 @@
         grid-template-columns: 2% 48% 48% 2%;
         grid-template-areas: 
         ". aiRobottitle aiRobottitle ."
+        ". withdrawalFormBACK ."
         
         ;
         align-items: initial; /* necessary to align items at the end of each item*/

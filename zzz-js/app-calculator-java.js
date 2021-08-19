@@ -254,7 +254,12 @@ function Withdrawalcomputation(){
                     return mysorryAlert.sorryMessage(); //This RETURN declaration with Variable assignment is very important
                 }
                 // Return if Credit is 50%/60% of that Account Trading Value 
-                if(Balance > AccountTradingValue * 0.85){
+                if(Balance < AccountTradingValue * 0.9){
+                    const mysorryAlert = new sorryAlert(Balance, "Balance");    
+                    return mysorryAlert.sorryMessage();
+                }
+                // Return if Credit is 50%/60% of that Account Trading Value 
+                if(GainComputation() < 100){
                     const mysorryAlert = new sorryAlert(Balance, "Balance");    
                     return mysorryAlert.sorryMessage();
                 }
