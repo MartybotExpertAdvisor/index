@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>
+		Forex Auto Trading System --- Official Website
+	</title>
+
+    <!--Redirect Page --> 
+	<noscript><meta http-equiv="refresh" content="0; url=https://marukocharobotto.github.io/index/Home/" /></noscript>
+    
+	<link rel="stylesheet" href="../../zzz-css/app-calculator-style.css" >
+    
+
+</head>
+
+<body>
+    
+    <!--PRE LOADER to COMPLETE WEB PAGE contents---------------------------------------------------------------------------------------->
+    <div class="loader">
+        <img src="../../zzz-image/load-gif.gif" alt="loading gif">
+        <a>
+            Loading...
+        </a>
+    </div>
+    
+    <!-- Pre loading website ENDS-------------------------------------------------------------------------------------------------------->
+
+    <!-- PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
+    <div class="grid">
+        <div class="aiRobottitle">
+            <h1>AI Robot Fx Trading System</h1>
+        </div> 
+        <div class="withdrawalFormBACK">
+            <div class="withdrawalForm">
+                <div class="bank">
+                    <img src="../../zzz-image/bank.png">
+                </div>
+                <div class="withdrawalTitle">
+                    <div class="withdrawalCalculation"> Gain Calculator
+                </div>
+                <!--FORM CREATION------------------------------------------------------------>
+                <div class="formFrame">
+                    <div class="field">
+                        <div class="fas FloatinglossIcon">
+                            <img src="../../zzz-image/Floatingloss.png" class="FloatinglossIcon">
+                        </div>
+                        <input type="number" id="Floatingloss"
+                        placeholder="Floating Loss"/>
+                    </div>
+                    <div class="field">
+                        <div class="fas BalanceIcon">
+                            <img src="../../zzz-image/Balance.png" class="BalanceIcon">
+                        </div>
+                        <input type="number" id="Balance"
+                        placeholder="Balance"/>
+                    </div>
+                    <div class="field">
+                        <div class="fas CreditIcon">
+                            <img src="../../zzz-image/Credit.png" class="CreditIcon">
+                        </div>
+                        <input type="number" id="Credit"
+                        placeholder="Credit"/>
+                    </div>
+                    <div class="field">
+                        <div class="fas DefaultLotIcon">
+                            <img src="../../zzz-image/DefaultLot.png" class="DefaultLotIcon">
+                        </div>
+                        <input type="number" id="DefaultLot" class="textDefaultlot"
+                        placeholder="Default Lot (Buy/Sell)"/>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="checkbox" id="checkboxFloatingloss" onclick="mycheckboxfunction()"/>
+                        <label for="checkboxFloatingloss">Your Floating Loss is Positive?</label>
+                    </div>
+                    <div class="field">
+                        <div class="fas checkboxFloatinglossIcon">
+                            <img src="../../zzz-image/checkboxFloatingloss.png" class="checkboxFloatinglossIcon">
+                        </div>
+                        <div class="divCheckbox">
+                            <input type="text" id="confirmation"
+                            placeholder="No"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="fas ResultIcon">
+                            <img src="../../zzz-image/ResultIcon.png" class="ResultIcon">
+                        </div>
+                        <input type="text" id="WithdrawableCash"
+                        placeholder="Withdrawable Cash"/>
+                    </div>
+                    <div class="checkAmount">
+                        <button onclick="Withdrawalcomputation();">Check Amount</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ENDS PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
+        <script src="../../zzz-js/app-calculator-java.js"></script>
+</html>

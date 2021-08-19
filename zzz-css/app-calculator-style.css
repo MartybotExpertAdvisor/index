@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Audiowide:300,400,500,600,700&display=swap');
+
+/* mobile version */
+
+*{ /* this code necessary for better margin of text on overall layout*/
+    scroll-behavior: smooth;
+    box-sizing: border-box; /*this is necessary for animation to maintain the border of clouds */
+   /* overflow: visible; it means no scrolling down only screen */
+}
+
+/* Webpage Layout */
+.grid{
+    display: grid;
+    grid-template-columns: 2% 96% 2%;
+    grid-template-areas: 
+        ". aiRobottitle ."
+        ". withdrawalFormBACK ."
+        
+    ;
+    margin: 0;
+    position: relative;
+    align-items: center;
+    /*background: turquoise;*/
+}
+
+.aiRobottitle{
+    grid-area: aiRobottitle;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    background: #dde1e7;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 2;
+}
+.aiRobottitle h1{ /*TITLE*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    text-justify: center;
+    text-align: center;
+    width: 100%;
+    font-family: audiowide;
+    font-size: 18px;
+    letter-spacing: 2px;
+
+}
+
+/* Withdrawal Form Styling //////////////////////////////////////////////////////////////// */
+.withdrawalFormBACK{
+    grid-area: withdrawalFormBACK;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    top: 25px;
+    align-items: center;
+    width: 100%;
+    height: 780px;
+    border-radius: 5px;
+    font-family:'Poppins', sans-serif;
+    background: #dde1e7;
+    user-select:none;
+}
+.withdrawalForm{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    background: #dde1e7;
+    padding: 45px 35px 40px;
+    box-sizing: border-box;
+    width: 330px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: -4px -4px 7px
+    #fffdfdb7,
+    3px 3px 5px rgba(94,
+    104, 121, 0.288);
+}
+
+.withdrawalForm .bank img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    margin-left: 31%;
+    margin-top: -100px;
+    box-shadow:
+    0px 0px 2px #6b6a6a,
+    0px 0px 0px 5px #ecf0f3,
+    5px 5px 15px #a7aaaf,
+    -8px -8px 15px #ffffff;
+}
+
+.withdrawalTitle{
+    position: relative;
+    top: -15px;
+}
+.withdrawalForm .withdrawalTitle .withdrawalCalculation{
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.formFrame{
+    margin-top: 5px;
+}
+.formFrame .field{
+    margin-top: 10px;
+    display: flex;
+}
+.formFrame .checkAmount{
+    position: relative;
+    top: -25px;
+}
+.field .fas{
+    background: #dde1e7;
+    color: #868686;
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+    width: 60px;
+    border: none;
+    text-align: center;
+    border-right: none;
+    border-radius: 4px;
+    box-shadow: inset 2px 2px 5px
+    #babecc,
+    inset -5px -5px 10px
+    #ffffff73;
+}
+
+.RunningEquityIcon img{
+    position: relative;
+    top: 10px;
+    width: 30px;
+}
+.MaintainingEquityIcon img{
+    position: relative;
+    top: 7px;
+    width: 30px;
+}
+.ResultIcon img{
+    position: relative;
+    top: 7px;
+    width: 30px;
+}
+
+.field input,.checkAmount button{
+    background: #dde1e7;
+    padding: 0 15px;
+    border-radius: 0 5px 5px 0;
+    height: 50px;
+    width: 100%;
+    font-size: 19px;
+    color: #868686;
+    outline: none;
+    border: none;
+    box-shadow: inset 2px 2px 5px
+    #babecc,
+    inset -5px -5px 10px
+    #ffffff73;
+}
+.field .textDefaultlot{
+    font-size: 17px;
+}
+.formFrame .checkAmount button{
+    color: #363837;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: -3px -3px 7px
+    #fffdfdb7,
+    2px 2px 5px
+    rgba(94, 104, 121, 0.288);
+}
+.checkAmount button:hover{
+    color: #0dafbb;
+    box-shadow: inset 2px 2px 5px
+    #babecc,
+    inset -5px -5px 10px
+    #ffffff73;
+}
+/* ENDS Withdrawal Form Styling //////////////////////////////////////////////////////////////// */
+
+/*  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
+@media screen and (min-width: 736px) {
+
+    .grid{
+        display: grid;
+        grid-template-columns: 2% 48% 48% 2%;
+        grid-template-areas: 
+        ". aiRobottitle aiRobottitle ."
+        
+        ;
+        align-items: initial; /* necessary to align items at the end of each item*/
+        /*grid-gap: 5px;*/
+        position: relative;
+        /*background: turquoise;*/
+    }
+
+    /* WEB PAGE LAYOUT /////////////////////////////  */
+
+    /* WEB PAGE LAYOUT /////////////////////////////  */
+}
+/*  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
+
+/*PRE LOADER the website///////////////////////////////////////////////////////////////////////////////////////////// */
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: lightgrey;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*horizontal alignment*/
+    align-items: center; /* vertical alignment*/
+    z-index: 99;
+}
+.loader a{
+    line-height: 1em;
+    font-weight: 600;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.disappearloader{
+    animation: vanish 1s forwards;
+}
+@keyframes vanish{
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/*ENDS PRE LOADER the website//////////////////////////////////////////////////////////////////////////////////////////// */
+
+/*neo light start*/
+a:hover{
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3; 
+    transition-delay: 1s;
+}
+
+a span{
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+}
+
+a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+a span:nth-child(2){
+    top: -100%;
+    right: 0%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+/*neo light end*/
+
