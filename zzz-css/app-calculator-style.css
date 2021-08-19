@@ -125,7 +125,7 @@
     font-size: 20px;
     line-height: 50px;
     height: 50px;
-    width: 60px;
+    width: 70px;
     border: none;
     text-align: center;
     border-right: none;
@@ -136,12 +136,12 @@
     #ffffff73;
 }
 
-.RunningEquityIcon img{
+.FloatinglossIcon img{
     position: relative;
     top: 10px;
-    width: 30px;
+    width: 48px;
 }
-.MaintainingEquityIcon img{
+.BalanceIcon img{
     position: relative;
     top: 7px;
     width: 30px;
