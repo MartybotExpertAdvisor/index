@@ -139,17 +139,32 @@
 .FloatinglossIcon img{
     position: relative;
     top: 10px;
-    width: 48px;
+    width: 50px;
 }
 .BalanceIcon img{
     position: relative;
     top: 7px;
     width: 30px;
 }
+.CreditIcon img{
+    position: relative;
+    top: 0px;
+    width: 40px;
+}
+.DefaultLotIcon img{
+    position: relative;
+    top: 1px;
+    width: 46px;
+}
+.checkboxFloatinglossIcon img{
+    position: relative;
+    top: 0px;
+    width: 38px;
+}
 .ResultIcon img{
     position: relative;
-    top: 7px;
-    width: 30px;
+    top: 3px;
+    width: 40px;
 }
 
 .field input,.checkAmount button{
@@ -166,6 +181,9 @@
     #babecc,
     inset -5px -5px 10px
     #ffffff73;
+}
+.field .textFloatingloss{
+    font-size: 17px;
 }
 .field .textDefaultlot{
     font-size: 17px;
