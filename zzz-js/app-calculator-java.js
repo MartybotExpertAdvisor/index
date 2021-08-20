@@ -82,7 +82,7 @@ function mycheckboxfunction(){
 //MAIN Calculation of CHECK AMOUNT 
 
 function Withdrawalcomputation(){
-    /*Variable Declaration  &&  || */
+    /*Constant Declaration  &&  || */
     const Floatingloss = parseFloat(document.getElementById('Floatingloss').value); //Floating loss of the Account
     const Balance = parseFloat(document.getElementById('Balance').value); //Balance of the Account
     const Credit = parseFloat(document.getElementById('Credit').value); //Credit of the Account
@@ -90,33 +90,38 @@ function Withdrawalcomputation(){
     const LotConversion = 10000; //Conversion of Default Lot to Account Trading Value
     const AccountTradingValue = DefaultLot * LotConversion;
     const MinimumWithdrawableCash = 100; // Minimum amount that you can withdraw
+    const MinimumCredit = 30; // Minimum amount of Credit to consider Credit Reduction
+    
+    //Variable Declaration Calculation initialization
     var confirmation = document.getElementById('confirmation').value; //Confirmation if Floating is positive gain
-
-    const CreditpercentReduction = (1 - 0.2); // Credit Bonus Amount Percentage when you used in trading
+    var GainValue = parseInt(Balance + Credit - AccountTradingValue); //Gain accumulated
+    var Equity = 0; // Initializes the Equity after the credit has been reduced
 
     /*Method of Computation*/
     //1. Set Value of Trading Label to blank so that we can change the place holder to desired text message
     //2. Then Set Value of Floating Loss, Balance, etc... to new Place holder Value
     //3. Check if Balance is greater than Credit
-            //Gain computation inclusion of Credit reduction if needed
-            function GainComputation(){
-                //Guard close if Credit is so small to include
-                if(Credit < 50){ // Credit is not too big to affect the Trading Account and no need to include on Compuation
-                    var GainValue = parseInt(Balance + Credit - AccountTradingValue);
+            function GainComputation(){ 
+                if(GainValue < MinimumWithdrawableCash){ // Check if you have profit/ gain
+                    return GainValue;
+                } 
+                if(Credit <= MinimumCredit){ // Credit is not too big to affect the Trading Account and no need to include on Computation
                     return GainValue;
                 }
-                var GainValue = parseInt((Balance + Credit - AccountTradingValue) * CreditpercentReduction); // Credit is too big to affect the Trading Account and need to include on Compuation
-                return GainValue;
+                Equity = Balance + Credit - GainValue - Credit * (GainValue/Balance); //Equity after the Credit has been reduced
+                while(Equity < AccountTradingValue){
+                    GainValue--; 
+                    Equity = Balance + Credit - GainValue - Credit * (GainValue/Balance)
+                }
+                return parseInt(GainValue);
             }
-            //console.log("GainComputation Value:" + GainComputation());
-
     //CLASS OOP//////////////////////////////////////////////////////////////////////////
     class InputAlert { //Alert Message if Input is blank or error
         constructor (AccountInput){
             this.AccountInput = AccountInput;
         }
         inputMessage() {
-            alert("Please input a value in the " + this.AccountInput + " place holder");
+            alert("Please input a value in the " + this.AccountInput + " place holder box");
         }    
     }
 
@@ -131,7 +136,7 @@ function Withdrawalcomputation(){
         }       
     }
 
-    //Overwrite the input with Default Place holder Label when a mistake is made InputBox
+    //Overwrite the input with Default Place holder Label when a mistake is made InputBox or no gain / profit has been calculated
     class ReplacePlaceHolderInput {
         constructor (placeholderBox){
             this.placeholderBox = placeholderBox;
@@ -153,11 +158,15 @@ function Withdrawalcomputation(){
                 document.getElementById('DefaultLot').value = "";
                 document.getElementById('DefaultLot').placeholder = "Default Lot (Buy/Sell)";
             }
+            if(this.placeholderBox == "Withdrawable Cash"){
+                document.getElementById('WithdrawableCash').value = "";
+                document.getElementById('WithdrawableCash').placeholder = "Withdrawable Cash";
+            }
         }
     }
     //ENDS CLASS OOP//////////////////////////////////////////////////////////////////////////
 
-    // Guard Clause ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Guard Clause of INPUT ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Check if EMPTY (next line annotation \r\n) old alert("Please input a value in the Floating Loss and Balance");
     if(document.getElementById('Floatingloss').value.length == 0){ 
@@ -210,15 +219,14 @@ function Withdrawalcomputation(){
         const myInputAlert = new InputAlert("Default Lot (Buy/Sell)");    
         return myInputAlert.inputMessage();
     }
-
     if(Floatingloss > 0){
         if(confirmation == ""){ // "" means floating loss is not yet confirm by trader if positve or negative
         //Confirm if trading account is floating gain  
-        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ". If Yes, Check the tick mark and press again the Check Amount button");
+        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ".\r\n If Yes, Check the tick mark and press again the Check Amount button");
         }
         if(confirmation == "No"){ // "" means floating loss is not yet confirm by trader if positive or negative
         //Confirm if trading account is floating gain  
-        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ". If Yes, Check the tick mark and press again the Check Amount button");
+        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ".\r\n If Yes, Check the tick mark and press again the Check Amount button");
         }
     }
 
@@ -247,7 +255,9 @@ function Withdrawalcomputation(){
                 document.getElementById('DefaultLot').placeholder = "Default Lot: " + DefaultLot;
             }
             if(this.placeholderBox == "Withdrawable Cash"){
+                GainComputation(); // Callback the Gain Computation
                 document.getElementById('WithdrawableCash').value = "";
+
                 if(Floatingloss < -100){
                     // Floating Loss is noticeable to affect the Trading Account and withrawal is not recommended
                     const mysorryAlert = new sorryAlert(Floatingloss, "Floating Loss");    
@@ -258,17 +268,22 @@ function Withdrawalcomputation(){
                     const mysorryAlert = new sorryAlert(Balance, "Balance");    
                     return mysorryAlert.sorryMessage();
                 }
-                // Return if Credit is 50%/60% of that Account Trading Value 
-                if(GainComputation() < 100){
+                //NO PROFIT GENERATED due to Big Credit received
+                if(GainValue < MinimumWithdrawableCash){
+                    //Reset the place Holder to default since you gain/ profit is less than $100
+                    const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Withdrawable Cash");  //Overwrite the placeholder label to default name  
+                    myReplacePlaceHolderInput.OverwritePlaceholder();
+
                     const mysorryAlert = new sorryAlert(Balance, "Balance");    
                     return mysorryAlert.sorryMessage();
                 }
-                document.getElementById('WithdrawableCash').placeholder = "Gain: $" + GainComputation();
+                // IF all is OK and profit is more than 0r equal to $100, print NOW the Withdrawable CASH
+                document.getElementById('WithdrawableCash').placeholder = "Gain: $" + GainValue; 
             }
         }
     }
-
-    // PRINT OUTPUT of Gain Calculator FORM///////////////////////////////////////////////////////////////////////
+    
+    // PRINT OUTPUT THE FORM of Gain Calculator FORM with CLASS sructure usage///////////////////////////////////////////////////////////////////////
     const myresultFloating = new resultPlaceHolderInput("Floating Loss");  //Overwrite the placeholder label with Calculation Result
     myresultFloating.ResultPlaceholder();
 
