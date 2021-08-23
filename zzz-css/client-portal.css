@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Audiowide:300,400,500,600,700&display=swap');
+
+/* mobile version */
+
+*{ /* this code necessary for better margin of text on overall layout*/
+    scroll-behavior: smooth;
+    box-sizing: border-box; /*this is necessary for animation to maintain the border of clouds */
+   /* overflow: visible; it means no scrolling down only screen */
+}
+
+/* Webpage Layout */
+.grid{
+    display: grid;
+    grid-template-columns: 2% 96% 2%;
+    grid-template-areas: 
+        ". aiRobottitle ." 
+        ". superman ."
+        ". loader ." 
+        ". FAQ ." 
+        
+                
+    ;
+    margin: 0;
+    position: relative;
+    align-items: center;
+    /*background: turquoise;*/
+}
+/* WEB PAGE LAYOUT /////////////////////////////  */
+.aiRobottitle{
+    grid-area: aiRobottitle;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    background: #dde1e7;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 7;
+}
+.aiRobottitle h1{ /*TITLE*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    text-justify: center;
+    text-align: center;
+    width: 100%;
+    font-family: audiowide;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+/* Superman ///////////////////////////////////////////////////////////////////////////// */
+.superman{
+    grid-area: superman;
+    position: relative;
+    padding: 15px 150px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 100px;
+    left: -50px;
+    width: 100px;
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    z-index: 5;
+}
+
+.superman img{
+    position: absolute;
+    right: -70%;
+    bottom: 0;
+    max-width: 100px;
+    animation: animate calc(8s * var(--i)) linear infinite;
+    transition-timing-function: ease-in;
+}
+
+@keyframes animate{
+    100%{
+        transform: translateX(-500%);
+        /*transform: translatey( 100%);*/
+    }
+    0%{
+        transform: translateX(200%);
+        transform: translatey( 50px);
+    }
+}
+/* ENDS Superman ///////////////////////////////////////////////////////////////////////// */
+/* FAQs ACCORDION/////////////////////////////////////////////////////////////////////////////////////// */
+
+.FAQ {
+    grid-area: FAQ;
+    position: relative;
+}
+.gettingStarted{
+    position: relative;
+    top: 100px;
+    width: 100px;
+}
+.faqtitle1{
+    position: relative;
+    top: 20px;
+    left: 30px;
+    height: 50px;
+}
+.faqtitle2{
+    position: relative;
+    top: -30px;
+    left: 120px;
+    height: 50px;
+}
+.accordion {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    background: #009578;
+    z-index: 6;
+}
+
+.accordion__label,
+.accordion__content {
+padding: 14px 40px;
+}
+
+.accordion__label {
+display: block;
+color: #ffffff;
+font-weight: 500;
+cursor: pointer;
+position: relative;
+transition: background 0.1s;
+}
+/*/font-size: 0.8em;*/
+.accordion label{
+    font-size: 0.8em;
+}
+.accordion__label:hover {
+background: rgba(0, 0, 0, 0.1);
+}
+
+.accordion__label::after {
+content: "";
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: 20px;
+width: 12px;
+height: 6px;
+background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+background-size: contain;
+transition: transform 0.4s;
+}
+.accordion__content {
+position: relative;
+background: #ffffff;
+line-height: 1.6;
+font-size: 0.8em;
+display: none;
+}
+    /* Details of Accordion Styling///////////////////////////////////////// */
+    .accordion_content_details1{
+        position: relative;
+    }
+    .accordion_content_details1 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        max-width: 100%;
+        transform: translate(-50%);
+        border-radius: 10px;
+    }
+
+    .accordion_content_details2-1{
+        position: relative;
+    }
+    .accordion_content_details2-1 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    .accordion_content_details2-2{
+        position: relative; 
+    }
+    .accordion_content_details2-2 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    .accordion_content_details2-3{
+        position: relative;
+        top: -20px;
+        left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details2-4{
+        position: relative;
+    }
+    .accordion_content_details2-4 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    .accordion_content_details2-5{
+        position: relative;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details3-1{
+        position: relative;
+    }
+    .accordion_content_details3-1 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 100%;
+    }
+    .accordion_content_details4-1{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details5-1{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details5-2{
+        position: relative;
+       
+    }
+    .accordion_content_details5-2 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 100%;
+    }
+    .accordion_content_details6-1{
+        position: relative;
+        top: 0px;
+        left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    .accordion_content_details6-2{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .accordion_content_details6-2 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 100%;
+    }
+    .accordion_content_details7-1{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 100%;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+    /* ENDS Details of Accordion Styling///////////////////////////////////////// */
+  .accordion__input {
+    display: none;
+  }
+  
+  .accordion__input:checked ~ .accordion__content {
+    display: block;
+  }
+  
+  .accordion__input:checked ~ .accordion__label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+  }
+  
+/* ENDS FAQs ACCORDION///////////////////////////////////////////////////////////////////////////////////// */
+
+/* WEB PAGE LAYOUT /////////////////////////////  */
+
+/*  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
+@media screen and (min-width: 736px) {
+
+    .grid{
+        display: grid;
+        grid-template-columns: 2% 48% 48% 2%;
+        grid-template-areas: 
+            ". aiRobottitle aiRobottitle ." 
+            ". superman superman ." 
+            ". loader loader ." 
+            ". FAQ . ."         
+        ;
+        margin: 0;
+        position: relative;
+        align-items: center;
+        /*background: turquoise;*/
+    }
+
+    /* WEB PAGE LAYOUT /////////////////////////////  */
+    .superman{
+        display: none;
+    }
+    .gettingStarted{
+        position: relative;
+        left: 0;
+        top: 100px;
+        width: 100px;
+    }
+    .faqtitle1{
+        position: relative;
+        top: 20px;
+        left: 30px;
+        height: 50px;
+    }
+    .faqtitle2{
+        position: relative;
+        top: -30px;
+        left: 120px;
+        height: 50px;
+    }
+    /* WEB PAGE LAYOUT /////////////////////////////  */
+}
+/*  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
+
+/*PRE LOADER the website///////////////////////////////////////////////////////////////////////////////////////////// */
+.loader{
+    grid-area: loader;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: lightgrey;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*horizontal alignment*/
+    align-items: center; /* vertical alignment*/
+    z-index: 99;
+}
+.loader a{
+    line-height: 1em;
+    font-weight: 600;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.disappearloader{
+    animation: vanish 1s forwards;
+}
+@keyframes vanish{
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/*ENDS PRE LOADER the website//////////////////////////////////////////////////////////////////////////////////////////// */
+
+/*neo light start*/
+a:hover{
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3; 
+    transition-delay: 1s;
+}
+
+a span{
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+}
+
+a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+a span:nth-child(2){
+    top: -100%;
+    right: 0%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #2196f3); 
+}
+
+a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+/*neo light end*/
+

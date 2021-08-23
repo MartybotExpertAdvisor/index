@@ -4,101 +4,34 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial scale=1.0">
     <title>
-		CLIENT Portal --- Forex Auto Trading System --- Official Website
+		Client Portal --- Forex Auto Trading System --- Official Website
 	</title>
-
     <!--Redirect Page --> 
 	<noscript><meta http-equiv="refresh" content="0; url=https://marukocharobotto.github.io/index/Home/" /></noscript>
-    
-	<link rel="stylesheet" href="../../zzz-css/main-client-base-client-portal.css" >
+	<link rel="stylesheet" href="../../zzz-css/client-portal.css" >
 </head>
-
 <body>
-<!--PRE LOADER to COMPLETE WEB PAGE contents---------------------------------------------------------------------------------------->
-    <!-- Pre loading website -->
+    <!--PRE LOADER to COMPLETE WEB PAGE contents---------------------------------------------------------------------------------------->
     <div class="loader">
         <img src="../../zzz-image/load-gif.gif" alt="loading gif">
         <a>
             Loading...
         </a>
     </div>
-    <script>
-        var loader = document.querySelector(".loader")
-
-        window.addEventListener("load", vanish);
-
-        function vanish() {
-            loader.classList.add("disappearloader");
-        }
-        /* console.log(loader); */
-    </script>
     <!-- Pre loading website ENDS-------------------------------------------------------------------------------------------------------->
-
     <!-- PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
     <div class="grid">
         <div class="aiRobottitle">
             <h1>AI Robot Fx Trading System</h1>
+        </div> 
+        <div class="superman">
+            <img src="../../zzz-image/superman.png" style="--i:1;">
         </div>
-        <div class="navigationbar">
-            <div class="navName1">
-                <a href="#"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Home</a>
-                
-            </div>
-            <div class="titlebetweenline">
-                
-            </div>
-            <div class="navName2">
-                <a href="#FAQ"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>FAQ's</a>
-                <a href="contact-us.html">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>Contact us</a>
-            </div>
-        </div>
-
-        <!-- hidden nav bar styling, script enable hide nav bar-->
-        <script>
-            const navigationbar = document.querySelector(".navigationbar");
-            let lastScrollY = window.scrollY;
-
-            window.addEventListener("scroll", () => {
-                    if (lastScrollY < window.scrollY) {
-                        console.log("we are going down");
-                        navigationbar.classList.add("nav--hidden");
-                    }
-                    else {
-                        console.log("we are going up");
-                        navigationbar.classList.remove("nav--hidden");
-                    }
-
-                    lastScrollY = window.scrollY;
-            });
-        </script>
-        <!-- script enable hide nav bar ENDS-->
-
-        <div class="home" id="home">
-            <!--
-            <div class="clouds">
-                <img src="../../zzz-image/cloud1.png" style="--i:1;">
-                <img src="../../zzz-image/cloud2.png" style="--i:2;">
-                <img src="../../zzz-image/cloud3.png" style="--i:3;">
-                <img src="../../zzz-image/cloud4.png" style="--i:4;">
-                <img src="../../zzz-image/cloud5.png" style="--i:5;">
-            </div>
-            -->
-        </div>        
         <!--ACCORDION-------------------------------------------------------------------------------->
         <div class="FAQ" id="FAQ">
+            <div>
+                <img src="../../zzz-image/gettingStarted.png" class="gettingStarted">
+            </div>
             <div>
                 <img src="../../zzz-image/faq1.png" class="faqtitle1">
             </div>
@@ -184,12 +117,13 @@
                     <label for="section6" class="accordion__label">Send us your log-in details for AI Robot Set-up</label>
                     <div class="accordion__content">
                         <div class="accordion_content_details6-1">
-                            Log-in details: <br>
-                            &nbsp;&nbsp;✅Log-in ID <br>
-                            &nbsp;&nbsp;✅Password <br>
-                            &nbsp;&nbsp;✅Server <br>
-                            &nbsp;&nbsp;✅Personal Email <br>
-                            &nbsp;&nbsp;✅Sceenshot of Account Set-up
+                            <p>Log-in details: <br>
+                                &nbsp;&nbsp;✅Log-in ID <br>
+                                &nbsp;&nbsp;✅Password <br>
+                                &nbsp;&nbsp;✅Server <br>
+                                &nbsp;&nbsp;✅Personal Email <br>
+                                &nbsp;&nbsp;✅Sceenshot of Account Set-up
+                            </p>
                         </div>
                         <div class="accordion_content_details6-2">
                             <img src="../../zzz-image/accountSetup.png" class="accountSetup">
@@ -201,382 +135,19 @@
                     <label for="section7" class="accordion__label">Pay your subscription</label>
                     <div class="accordion__content">
                         <div class="accordion_content_details7-1">
-                            Procedure: <br>
-                            &nbsp;&nbsp;✅You will receive invoice thru PayPal.<br>
-                            &nbsp;&nbsp;✅AI Robot will be attached to your account 24-48Hrs <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            approximately after the payment has been made.<br>
+                            <p>Procedure: <br>
+                                &nbsp;&nbsp;✅You will receive invoice thru PayPal.<br>
+                                &nbsp;&nbsp;✅AI Robot will be attached to your account 24-48Hrs 
+                                approximately after the payment has been made.<br>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!--ENDS ACCORDION-------------------------------------------------------------------------------->
-
-        <!-- Withdrawal Form---------------------------------------------------------------->
-        <div class="withdrawalFormBACK">
-            <div class="withdrawalForm">
-                <div class="bank">
-                    <img src="../../zzz-image/bank.png">
-                </div>
-                <div class="withdrawalTitle">
-                    <div class="withdrawalCalculation"> Withdrawal Computation
-                </div>
-                <!--FORM CREATION------------------------------------------------------------>
-                <div class="formFrame">
-                    <div class="field">
-                        <div class="fas FloatinglossIcon">
-                            <img src="../../zzz-image/Floatingloss.png" class="FloatinglossIcon">
-                        </div>
-                        <input type="number" id="Floatingloss"
-                        placeholder="Floating Loss"/>
-                    </div>
-                    <div class="field">
-                        <div class="fas BalanceIcon">
-                            <img src="../../zzz-image/Balance.png" class="BalanceIcon">
-                        </div>
-                        <input type="number" id="Balance"
-                        placeholder="Balance"/>
-                    </div>
-                    <div class="field">
-                        <div class="fas CreditIcon">
-                            <img src="../../zzz-image/Credit.png" class="CreditIcon">
-                        </div>
-                        <input type="number" id="Credit"
-                        placeholder="Credit"/>
-                    </div>
-                    <div class="field">
-                        <div class="fas DefaultLotIcon">
-                            <img src="../../zzz-image/DefaultLot.png" class="DefaultLotIcon">
-                        </div>
-                        <input type="number" id="DefaultLot"
-                        placeholder="Default Lot (Buy/Sell)"/>
-                    </div>
-                
-                    <div class="field">
-                        <div class="fas ResultIcon">
-                            <img src="../../zzz-image/ResultIcon.png" class="ResultIcon">
-                        </div>
-                        <input type="text" id="WithdrawableCash"
-                        placeholder="Withdrawable Cash"/>
-                    </div>
-                    <br><br>
-                    <div>
-                        <input type="checkbox" id="checkboxFloatingloss" onclick="mycheckboxfunction()"/>
-                        <label for="checkboxFloatingloss">Your Floating Loss is Positive?</label>
-                    </div>
-                    
-                    <div class="field">
-                        <div class="fas checkboxFloatinglossIcon">
-                            <img src="../../zzz-image/checkboxFloatingloss.png" class="checkboxFloatinglossIcon">
-                        </div>
-                        <div class="divCheckbox">
-                            <input type="text" id="confirmation"
-                            placeholder="No"/>
-                        </div>
-                    </div>
-                    
-                    <div class="checkAmount">
-                        <button onclick="Withdrawalcomputation();">Check Amount</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script>
-            //On Flaoting GAIN SCENARIO
-            function mycheckboxfunction(){
-                        var checkbox = document.getElementById("checkboxFloatingloss");
-                        var floatingGainApprovedtext = document.getElementById("floatingGainApprovedtext");
-                        if(checkbox.checked == true){
-                            document.getElementById('confirmation').value = "Yes";
-                        }
-                        else{
-                            document.getElementById('confirmation').value = "No";
-                        }
-                    }
-            function Withdrawalcomputation(){
-                    /*Variable Declaration  &&  || */
-                    const Floatingloss = parseFloat(document.getElementById('Floatingloss').value); //Floating loss of the Account
-                    const Balance = parseFloat(document.getElementById('Balance').value); //Balance of the Account
-                    const Credit = parseFloat(document.getElementById('Credit').value); //Credit of the Account
-                    const DefaultLot = parseFloat(document.getElementById('DefaultLot').value); //Default Lot of the Account
-                    const LotConversion = 10000; //Conversion of Default Lot to Account Trading Value
-                    const AccountTradingValue = DefaultLot * LotConversion;
-                    const MinimumWithdrawableCash = 100; // Minimum amount that you can withdraw
-                    var confirmation = document.getElementById('confirmation').value; //Confirmation if Floating is positive gain
-
-                    const CreditpercentReduction = (1 - 0.2); // Credit Bonus Amount Percentage when you used in trading
-
-                    /*Method of Computation*/
-                    //1. Set Value of Running equity to blank so that we can change the place holder to desired text message
-                    //2. Then Set Value of Floating Loss, Balance, etc... to new Place holder Value
-                    //3. Check if Balance is greater than Credit
-                            //Gain computation inclusion of Credit reduction if needed
-                            function GainComputation(){
-                                //Guard close if Credit is so small to include
-                                if(Credit < 50){ // Credit is not too big to affect the Trading Account and no need to include on Compuation
-                                    var GainValue = (Balance + Credit - AccountTradingValue)
-                                    return GainValue;
-                                }
-                                var GainValue = (Balance + Credit - AccountTradingValue) * CreditpercentReduction; // Credit is too big to affect the Trading Account and need to include on Compuation
-                                
-                                return GainValue;
-                            }
-                            //console.log("GainComputation Value:" + GainComputation());
-                    
-                    //CLASS OOP//////////////////////////////////////////////////////////////////////////
-                    class InputAlert { //Alert Message if Input is blank or error
-                        constructor (AccountInput){
-                            this.AccountInput = AccountInput;
-                        }
-                        inputMessage() {
-                            alert("Please input a value in the " + this.AccountInput + " box");
-                        }    
-                    }
-
-                    class sorryAlert { //Alert Message if no available Balance
-                        constructor (TradingValue, TradingLabel){
-                            this.TradingValue = TradingValue;
-                            this.TradingLabel = TradingLabel;
-
-                        }
-                        sorryMessage() {
-                        alert("Sorry your " + this.TradingLabel + " of " + this.TradingValue + " will have significant affect\r\non your Trading. Thus, we don't recommend any withdrawal as of the moment 💔...");
-                        }       
-                    }
-
-                    //Overwrite the input with Default Place holder Label when a mistake is made InputBox
-                    class ReplacePlaceHolderInput {
-                        constructor (placeholderBox){
-                            this.placeholderBox = placeholderBox;
-                        }
-
-                        OverwritePlaceholder(){
-                            if(this.placeholderBox == "Floating Loss"){
-                                document.getElementById('Floatingloss').value = "";
-                                document.getElementById('Floatingloss').placeholder = "Floating Loss";
-                            }
-                            if(this.placeholderBox == "Balance"){
-                                document.getElementById('Balance').value = "";
-                                document.getElementById('Balance').placeholder = "Balance";
-                            }
-                            if(this.placeholderBox == "Credit"){
-                                document.getElementById('Credit').value = "";
-                                document.getElementById('Credit').placeholder = "Credit";
-                            }
-                            if(this.placeholderBox == "Default Lot"){
-                                document.getElementById('DefaultLot').value = "";
-                                document.getElementById('DefaultLot').placeholder = "Default Lot";
-                            }
-                        }
-                    }
-                    //ENDS CLASS OOP//////////////////////////////////////////////////////////////////////////
-
-                    // Guard Clause ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    
-                    //Check if EMPTY (next line annotation \r\n) old alert("Please input a value in the Floating Loss and Balance");
-                    if(document.getElementById('Floatingloss').value.length == 0 && document.getElementById('Balance').value.length == 0){ 
-                        const myInputAlert = new InputAlert("Floating Loss and Balance");    
-                        return myInputAlert.inputMessage();
-                    }
-                    if(document.getElementById('Floatingloss').value.length == 0){ 
-                        const myInputAlert = new InputAlert("Floating Loss");    
-                        return myInputAlert.inputMessage();
-                    }
-                    if(document.getElementById('Balance').value.length == 0){ 
-                        const myInputAlert = new InputAlert("Balance");    
-                        return myInputAlert.inputMessage();
-                    }
-                    if(document.getElementById('Credit').value.length == 0){ 
-                        const myInputAlert = new InputAlert("Credit");    
-                        return myInputAlert.inputMessage();
-                    }
-                    if(document.getElementById('DefaultLot').value.length == 0){ 
-                        const myInputAlert = new InputAlert("Default Lot");    
-                        return myInputAlert.inputMessage();
-                    }
-                    //CHECK if Input is not a number/*||*/////////////////////////////////////
-                    if(isNaN(Floatingloss)){ 
-
-                        //Reset the place Holder to default since you input incorrect        
-                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Floating Loss");  //Overwrite the placeholder label to default name  
-                        myReplacePlaceHolderInput.OverwritePlaceholder();
-
-                        const myInputAlert = new InputAlert("Floating Loss");    
-                        return myInputAlert.inputMessage();
-                    }
-                    if(isNaN(Balance)){ 
-
-                        //Reset the place Holder to default since you input incorrect
-                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Balance");  //Overwrite the placeholder label to default name  
-                        myReplacePlaceHolderInput.OverwritePlaceholder();
-
-                        const myInputAlert = new InputAlert("Balance");    
-                        return myInputAlert.inputMessage();
-                    }
-
-                    if(isNaN(Credit)){ 
-
-                        //Reset the place Holder to default since you input incorrect
-                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Credit");  //Overwrite the placeholder label to default name  
-                        myReplacePlaceHolderInput.OverwritePlaceholder();
-
-
-                        const myInputAlert = new InputAlert("Credit");    
-                        return myInputAlert.inputMessage();
-                    }
-                    if(isNaN(DefaultLot)){ 
-
-                        //Reset the place Holder to default since you input incorrect
-                        const myReplacePlaceHolderInput = new ReplacePlaceHolderInput("Default Lot");  //Overwrite the placeholder label to default name  
-                        myReplacePlaceHolderInput.OverwritePlaceholder();
-
-                        const myInputAlert = new InputAlert("Default Lotv (Buy/Sell)");    
-                        return myInputAlert.inputMessage();
-                    }
-
-                    if(Floatingloss > 0){
-                        if(confirmation == ""){ // "" means floating loss is not yet confirm by trader if positve or negative
-                        //Confirm if trading account is floating gain  
-                        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ". If Yes, Check the tick mark and press again the Check Amount button");
-                        }
-                        if(confirmation == "No"){ // "" means floating loss is not yet confirm by trader if positve or negative
-                        //Confirm if trading account is floating gain  
-                        return alert("Are you sure your Floating Loss is positive $" + Floatingloss + ". If Yes, Check the tick mark and press again the Check Amount button");
-                        }
-                    }
-                    
-                    // END Guard Clause ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                    //CLASS STRUCTURE out the Place Holder Label when Calculation is all OK//////////////////
-                    class resultPlaceHolderInput {
-                        constructor (placeholderBox){
-                            this.placeholderBox = placeholderBox;
-                        }
-
-                        ResultPlaceholder(){
-                            if(this.placeholderBox == "Floating Loss"){
-                                document.getElementById('Floatingloss').value = "";
-                                document.getElementById('Floatingloss').placeholder = "You input: $" + Floatingloss;
-                            }
-                            if(this.placeholderBox == "Balance"){
-                                document.getElementById('Balance').value = "";
-                                document.getElementById('Balance').placeholder = "You input: $" + Balance;
-                            }
-                            if(this.placeholderBox == "Credit"){
-                                document.getElementById('Credit').value = "";
-                                document.getElementById('Credit').placeholder = "You input: $" + Credit;
-                            }
-                            if(this.placeholderBox == "Default Lot"){
-                                document.getElementById('DefaultLot').value = "";
-                                document.getElementById('DefaultLot').placeholder = "You input: " + DefaultLot + " Lot" ;
-                            }
-                            if(this.placeholderBox == "Withdrawable Cash"){
-                                document.getElementById('WithdrawableCash').value = "";
-                                if(Floatingloss < -100){
-                                    // Floating Loss is noticeable to affect the Trading Account and withrawal is not recommended
-                                    const mysorryAlert = new sorryAlert(Floatingloss, "Floating Loss");    
-                                    return mysorryAlert.sorryMessage(); //This RETURN declaration with Variable assignment is very important
-                                }
-                                // Return if Credit is 50%/60% of that Account Trading Value 
-                                if(Credit > AccountTradingValue * 0.4){
-                                    const mysorryAlert = new sorryAlert(Credit, "Credit");    
-                                    return mysorryAlert.sorryMessage();
-                                }
-                                document.getElementById('WithdrawableCash').placeholder = "Result: $" + GainComputation();
-                            }
-                        }
-                    }
-
-                    // PRINT OUTPUT on Withdrawl Calculation FORM///////////////////////////////////////////////////////////////////////
-                    const myresultFloating = new resultPlaceHolderInput("Floating Loss");  //Overwrite the placeholder label with Calculation Result
-                    myresultFloating.ResultPlaceholder();
-
-                    const myBalance = new resultPlaceHolderInput("Balance");  //Overwrite the placeholder label with Calculation Result
-                    myBalance.ResultPlaceholder();
-
-                    const myresultCredit = new resultPlaceHolderInput("Credit");  //Overwrite the placeholder label with Calculation Result
-                    myresultCredit.ResultPlaceholder();
-
-                    const myresultDefaultLot = new resultPlaceHolderInput("Default Lot");  //Overwrite the placeholder label with Calculation Result
-                    myresultDefaultLot.ResultPlaceholder();
-
-                    const myresultWithdrawableCash = new resultPlaceHolderInput("Withdrawable Cash");  //Overwrite the placeholder label with Calculation Result
-                    myresultWithdrawableCash.ResultPlaceholder();
-
-                    // Return if Gain is less than 100usd
-               
-            }
-        </script>
-        <!-- ENDS Withdrawal Form---------------------------------------------------------------->
-
     </div>
-    <!-- ENDS PAGE GRID ---------------------------------------------------------------------------------------------------------------------->   
-
-
-    <!--DISABLE RIGHT CLICK, CTRL, F12 to explore the contents of WEB PAGE------------------------------------------------------------->
-    <script>
-		// Disable the rightclick and ctrl and f12 keys to find the source file
-		// take body to change the content
-		const body = document.getElementsByTagName('body');
-		// stop keyboard shortcuts
-		window.addEventListener("keydown", (event) => {
-			if(event.ctrlKey && (event.key === "S" || event.key === "s")) {
-				event.preventDefault();
-				alert("Sorry, you can't do this 💔");
-			}
-
-			if(event.ctrlKey && (event.key === "C")) {
-				event.preventDefault();
-				alert("Sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "E" || event.key === "e")) {
-				event.preventDefault();
-				alert("Sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "I" || event.key === "i")) {
-				event.preventDefault();
-				alert("Sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "K" || event.key === "k")) {
-				event.preventDefault();
-				alert("Sorry, you can't do this 💔");
-			}
-			if(event.ctrlKey && (event.key === "U" || event.key === "u")) {
-				event.preventDefault();
-				alert("Sorry, you can't do this 💔");
-			}
-		});
-		// stop keyboard shortcuts end
-		// stop right click 
-			if (document.addEventListener) {
-				document.addEventListener('contextmenu', function(e) {
-				alert("Sorry, you can't do this 💔");
-				e.preventDefault();
-				}, false);
-			}
-			else {
-				document.attachEvent('oncontextmenu', function() {
-				alert("Sorry, you can't do this 💔");
-				window.event.returnValue = false;
-				});
-			}
-		</script>
-
-		<script type="text/javascript">
-		//disable F12 keys
-			document.onkeydown = function (event)
-			{
-			event = (event || window.event);
-				if (event.keyCode == 123 || event.keyCode == 18)
-               {
-                    alert("Sorry, you can't do this 💔");
-                    return false;
-               }
-            }
-			//Javascript ENDS here
-        </script>
-        <!--DISABLE RIGHT CLICK, CTRL, F12 to explore the contents of WEB PAGE------------------------------------------------------------->
-
+    <!-- ENDS PAGE GRID ---------------------------------------------------------------------------------------------------------------------->
+    <script src="../../zzz-js/client-portal.js"></script>
 </body>
 </html>

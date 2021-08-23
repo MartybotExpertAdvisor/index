@@ -166,6 +166,12 @@
     top: 3px;
     width: 40px;
 }
+.returnhome img{
+    position: absolute;
+    top: -45px;
+    left: 245px;
+    width: 40px;
+}
 
 .field input,.checkAmount button{
     background: #dde1e7;
@@ -214,7 +220,7 @@
 
     .grid{
         display: grid;
-        grid-template-columns: 2% 48% 48% 2%;
+        grid-template-columns: 30% 40% 30%;
         grid-template-areas: 
         ". aiRobottitle aiRobottitle ."
         ". withdrawalFormBACK ."
