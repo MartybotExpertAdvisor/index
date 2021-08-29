@@ -50,23 +50,24 @@
 }
 
 /* Superman ///////////////////////////////////////////////////////////////////////////// */
-.superman{
+.animation{
     grid-area: superman;
     position: relative;
     padding: 15px 150px;
     margin-bottom: 20px;
+    display: none;
     position: absolute;
     top: 100px;
-    left: -50px;
-    width: 100px;
+    left: -150px; /* position animation finish */
+    width: 90px;
     /*height: 100%;*/
     /*overflow: hidden;*/
     z-index: 5;
 }
 
-.superman img{
+.animation img{
     position: absolute;
-    right: -70%;
+    right: -100%; /* positioning the image for animation */ 
     bottom: 0;
     max-width: 100px;
     animation: animate calc(8s * var(--i)) linear infinite;
@@ -79,10 +80,32 @@
         /*transform: translatey( 100%);*/
     }
     0%{
-        transform: translateX(200%);
+        transform: translateX(40%);
         transform: translatey( 50px);
     }
 }
+.cloudbuilding{
+    grid-area: superman;
+    position: relative;
+    padding: 15px 150px;
+    margin-bottom: 20px;
+    display: block;
+    position: absolute;
+    top: 118px;
+    left: -50px;
+    width: 120px;
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    z-index: 5;
+}
+
+.cloudbuilding img{
+    position: absolute;
+    right: -70%;
+    bottom: 0;
+    max-width: 130px;
+}
+
 /* ENDS Superman ///////////////////////////////////////////////////////////////////////// */
 /* FAQs ACCORDION/////////////////////////////////////////////////////////////////////////////////////// */
 
@@ -319,9 +342,9 @@ display: none;
     }
 
     /* WEB PAGE LAYOUT /////////////////////////////  */
-    .superman{
+    /*.superman{
         display: none;
-    }
+    }*/
     .gettingStarted{
         position: relative;
         left: 0;
