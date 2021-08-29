@@ -67,7 +67,7 @@
 
 .animation img{
     position: absolute;
-    right: -100%; /* positioning the image for animation */ 
+    right: -75%; /* positioning the image for animation */ 
     bottom: 0;
     max-width: 100px;
     animation: animate calc(8s * var(--i)) linear infinite;
@@ -101,7 +101,7 @@
 
 .cloudbuilding img{
     position: absolute;
-    right: -70%;
+    right: -50%;
     bottom: 0;
     max-width: 130px;
 }
