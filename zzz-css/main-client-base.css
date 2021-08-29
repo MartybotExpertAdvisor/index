@@ -508,7 +508,20 @@ a:hover span:nth-child(4){
     font-size: 0.85em;
     display: none;
   }
-  
+    /* Accordion content add-on*/
+    .accordion_content_details1{
+        position: relative;
+    }
+    .accordion_content_details1 img{
+        position: relative;
+        top: 10px;
+        left: 50%;
+        max-width: 100%;
+        transform: translate(-50%);
+        border-radius: 10px;
+    }
+    /* ENDS Accordion content add-on*/
+
   .accordion__input {
     display: none;
   }
