@@ -139,7 +139,6 @@
     border-radius: 5px;
 }
 
-
 .navName1 a, .navName2 a{
     position: relative; /* necessary for span to identify the position*/
     padding: 5px 5px;
@@ -262,6 +261,13 @@ a:hover span:nth-child(4){
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: 500;
+}
+
+.version a{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 /*
