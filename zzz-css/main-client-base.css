@@ -262,6 +262,11 @@ a:hover span:nth-child(4){
     font-size: 15px;
     font-weight: 500;
 }
+.video p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
 
 .version a{
     font-family: 'Poppins', sans-serif;
