@@ -18,7 +18,7 @@
         ". superman ."
         ". loader ." 
         ". FAQ ." 
-        
+        ". myfxVPS1 ." 
                 
     ;
     margin: 0;
@@ -47,6 +47,19 @@
     font-family: audiowide;
     font-size: 18px;
     letter-spacing: 2px;
+}
+
+/* myfxVPS ///////////////////////////////////////////////////////////////////////////// */
+.myfxVPS1{
+    grid-area: myfxVPS1;
+    position: relative;
+    justify-self: center;
+}
+.myfxVPS2{
+    grid-area: myfxVPS2;
+    position: relative;
+    justify-self: center;
+    display: none;
 }
 
 /* Superman ///////////////////////////////////////////////////////////////////////////// */
@@ -333,7 +346,7 @@ display: none;
             ". aiRobottitle aiRobottitle ." 
             ". superman superman ." 
             ". loader loader ." 
-            ". FAQ . ."         
+            ". FAQ myfxVPS2 ."         
         ;
         margin: 0;
         position: relative;
@@ -363,6 +376,23 @@ display: none;
         left: 120px;
         height: 50px;
     }
+
+    /* myfxVPS ///////////////////////////////////////////////////////////////////////////// */
+    .myfxVPS2{
+        grid-area: myfxVPS2;
+        position: relative;
+        justify-self: center;
+        display: flex;
+        
+    }
+    .myfxVPS1{
+        grid-area: myfxVPS1;
+        position: relative;
+        justify-self: center;
+        display: none;
+    }
+    
+
     /* WEB PAGE LAYOUT /////////////////////////////  */
 }
 /*  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
