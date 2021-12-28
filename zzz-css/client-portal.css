@@ -388,7 +388,7 @@ display: none;
         grid-area: myfxVPS1;
         position: relative;
         justify-self: center;
-        display: none;
+        display: flex;
     }
     
 
