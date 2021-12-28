@@ -19,7 +19,7 @@
         ". loader ." 
         ". FAQ ." 
         ". myfxVPS1 ." 
-                
+        ". RiskWarning ."
     ;
     margin: 0;
     position: relative;
@@ -61,6 +61,19 @@
     justify-self: center;
     display: none;
 }
+
+/* RiskWarning ///////////////////////////////////////////////////////////////////////////// */
+.RiskWarning {
+    grid-area: RiskWarning;
+    position: relative;
+    justify-self: center;
+}
+.RiskWarning p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+}
+/* RiskWarning ///////////////////////////////////////////////////////////////////////////// */
 
 /* Superman ///////////////////////////////////////////////////////////////////////////// */
 .animation{
@@ -345,7 +358,8 @@ display: none;
             ". aiRobottitle aiRobottitle ." 
             ". superman superman ." 
             ". loader loader ." 
-            ". FAQ myfxVPS2 ."         
+            ". FAQ myfxVPS2 ."      
+            ". myfxVPS1 RiskWarning ." 
         ;
         margin: 0;
         position: relative;
