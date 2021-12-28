@@ -233,8 +233,6 @@ display: none;
     }
     .accordion_content_details2-3{
         position: relative;
-        top: -20px;
-        left: 30px;
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
     }
@@ -251,6 +249,7 @@ display: none;
     }
     .accordion_content_details2-5{
         position: relative;
+        top: 20px;
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
     }
