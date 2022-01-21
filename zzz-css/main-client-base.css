@@ -429,6 +429,14 @@ a:hover span:nth-child(4){
     font-family: audiowide;
     font-size: 15px;
 }
+.version .CopyTradeFBS{
+    position: relative;
+    width: 275px;
+}
+.version .CopyTradeAndroidLink{
+    position: relative;
+    width: 270px;
+}
 
 .Portfolio {
     grid-area: Portfolio;
