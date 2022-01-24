@@ -661,6 +661,7 @@ a:hover span:nth-child(4){
         grid-area: video;
         position: relative;
         left: 0px;
+        top: 25px;
         justify-self: center;
         border-radius: 5px;
     }
