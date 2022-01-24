@@ -46,7 +46,7 @@
     --header--height: 45px;
     scroll-padding-top: var(--header--height);
 }
-/* Webpage Layout */
+/* Mobile Webpage Layout */
 .grid{
     display: grid;
     grid-template-columns: 2% 48% 48% 2%;
@@ -596,10 +596,16 @@ a:hover span:nth-child(4){
         ". home home ."
         ". popup popup ."
         ". forex version ."
+        ". Portfolio version ."
+        ". video FAQ ."
+        ;
+
+        /*
+        ". forex version ."
         ". forex Portfolio ."
         ". forex . ."
         ". FAQ video ."
-        ;
+        */
         align-items: initial; /* necessary to align items at the end of each item*/
         --grid-height: 5px;
         grid-gap: var(--grid-height);
@@ -636,12 +642,21 @@ a:hover span:nth-child(4){
         border-radius: 5px;
     }
     
+    .Portfolio {
+        grid-area: Portfolio;
+        position: relative;
+        top: 70px;
+        justify-self: center;
+        /*padding-top:20px;*/
+    }
+
     .version {
         grid-area: version;
         position: relative;
         justify-self: center;
         /*padding-top:20px;*/
     }
+    
     .video {
         grid-area: video;
         position: relative;
