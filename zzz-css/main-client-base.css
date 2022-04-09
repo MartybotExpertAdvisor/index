@@ -441,13 +441,19 @@ a:hover span:nth-child(4){
     position: relative;
     width: 270px;
 }
-
+/*Portfolio------------------------------------------------------------------------*/
 .Portfolio {
     grid-area: Portfolio;
     position: relative;
-    justify-self: center;
+    justify-self: left;
     /*padding-top:20px;*/
 }
+/*
+.Portfolio h1{
+    position: relative;
+    justify-self: left;
+}
+*/
 .Portfolio .referralLink-mt4{
     position: relative;
     top: -60px;
@@ -477,6 +483,18 @@ a:hover span:nth-child(4){
     border-radius: 5px;
     height: 37px;
 }
+.Portfolio .Portfolio-img1, .Portfolio-img2{
+    position: relative;
+    top: -60px;
+}
+.Portfolio .Portfolio-img1 img{
+    border-radius: 5px;
+}
+.Portfolio .Portfolio-img2 img{
+    border-radius: 5px;
+    width: 100%;
+}
+/*Portfolio------------------------------------------------------------------------*/
 /* FAQs ACCORDION//////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .FAQ {
@@ -654,7 +672,7 @@ a:hover span:nth-child(4){
         grid-area: Portfolio;
         position: relative;
         top: 70px;
-        justify-self: center;
+        justify-self: left;
         /*padding-top:20px;*/
     }
 
@@ -669,7 +687,7 @@ a:hover span:nth-child(4){
         grid-area: video;
         position: relative;
         left: 0px;
-        top: 25px;
+        top: 70px;
         justify-self: center;
         border-radius: 5px;
     }
