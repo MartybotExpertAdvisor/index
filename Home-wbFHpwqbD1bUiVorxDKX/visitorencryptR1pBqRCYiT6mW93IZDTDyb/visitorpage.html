@@ -311,7 +311,28 @@
                 </p>
                 <br>
                 <br>
-
+                <div id="donate-button-container">
+                    <div id="donate-button">
+                    </div>
+                    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8">
+                    </script>
+                    <script>
+                        PayPal.Donation.Button({
+                        env:'production',
+                        hosted_button_id:'U5X3JBT4NQ7E6',
+                        image: {
+                        src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+                        alt:'Donate with PayPal button',
+                        title:'PayPal - The safer, easier way to pay online!',
+                        }
+                        }).render('#donate-button');
+                    </script>
+                </div>
+                <p>
+                    &nbsp;&nbsp;Every donation you make, you will have a copy of my latest expert advisor and use it for a limited time of 1 year.<br>
+                </p>
+                <br>
+                <br>
                 <p>
                     &nbsp;&nbsp;MT4 Platform<br>
                     </p>
@@ -363,11 +384,6 @@
                 <br>
                 <br>
                 -->
-                
-                
-                <br>
-                
-
         </div> 
         <div class="Portfolio" id="Portfolio">
             <h1>Portfolio</h1>
