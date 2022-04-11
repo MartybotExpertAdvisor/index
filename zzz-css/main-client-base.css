@@ -585,6 +585,10 @@ a:hover span:nth-child(4){
         transform: translate(-50%);
         border-radius: 10px;
     }
+    .accordion__content .XM-attachEA embed{
+        border-radius: 10px;
+        width: 100%
+    }
     /* ENDS Accordion content add-on  */
 
   .accordion__input {
