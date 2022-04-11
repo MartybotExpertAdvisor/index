@@ -29,6 +29,7 @@
     position: sticky;
     top: 0px;
     width: 100%;
+    height: 50px;
     background: #dde1e7;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -44,8 +45,21 @@
     font-family: audiowide;
     font-size: 18px;
     letter-spacing: 2px;
+}
+.aiRobottitle h2{ /*XM Account only*/
+    position: relative;
+    top: -15px;
+    /*transform: translate(-50%);*/
+    text-justify: right;
+    text-align: right;
+    width: 100%;
+    font-family:'Poppins', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgb(219, 60, 20);
 
 }
+
 
 /* Withdrawal Form Styling //////////////////////////////////////////////////////////////// */
 .withdrawalFormBACK{
