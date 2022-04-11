@@ -458,18 +458,6 @@ a:hover span:nth-child(4){
     justify-self: left;
 }
 */
-.Portfolio .referralLink-mt4{
-    position: relative;
-    top: -60px;
-    border-radius: 5px;
-    width: 100%;
-}
-.Portfolio .referralLink-mt5{
-    position: relative;
-    top: -60px;
-    border-radius: 5px;
-    width: 100%;
-}
 .Portfolio a{
     text-decoration: none;
 }
@@ -610,10 +598,9 @@ a:hover span:nth-child(4){
     justify-self: center;
     border-radius: 5px;
 }
-.video video{
-    
-    width: 400px;
-    padding: 5%;
+.video .MartybotSampleVideo embed{  
+    border-radius: 10px;
+    width: 100%
 }
 /*ENDS Version to Video Styling Layout//////////////////////////////////////////////////////////////////////////////////////*/
 
