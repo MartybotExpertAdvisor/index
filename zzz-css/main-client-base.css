@@ -573,7 +573,7 @@ a:hover span:nth-child(4){
         transform: translate(-50%);
         border-radius: 10px;
     }
-    .accordion__content .XM-attachEA embed{
+    .accordion__content .XM-attachEA embed, .accordion__content .XM-openAccount embed{
         border-radius: 10px;
         width: 100%
     }
