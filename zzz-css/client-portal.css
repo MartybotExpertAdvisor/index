@@ -221,7 +221,10 @@ display: none;
         transform: translate(-50%);
         border-radius: 10px;
     }
-
+    .accordion_content_details1 .XM-openAccount embed{
+        border-radius: 10px;
+        width: 100%
+    }
     .accordion_content_details2-1{
         position: relative;
     }
@@ -330,6 +333,15 @@ display: none;
         max-width: 100%;
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
+    }
+    .accordion_content_details7-1 .MartyDownloadlink{
+        position: relative;
+        left: 5px;
+        width: 150px;
+    }
+    .accordion_content_details7-1 .XM-attachEA embed{
+        border-radius: 10px;
+        width: 100%
     }
     /* ENDS Details of Accordion Styling///////////////////////////////////////// */
   .accordion__input {
