@@ -455,6 +455,7 @@ a:hover span:nth-child(4){
     grid-area: Portfolio;
     position: relative;
     justify-self: left;
+    top: 20px;
     /*padding-top:20px;*/
 }
 /*
@@ -622,8 +623,9 @@ a:hover span:nth-child(4){
         ". home home ."
         ". popup popup ."
         ". forex version ."
-        ". Portfolio FAQ ."
-        ". video FAQ ."
+        ". Portfolio version ."
+        ". Portfolio video ."
+        ". FAQ FAQ ."
         ;
 
         /*
@@ -671,7 +673,7 @@ a:hover span:nth-child(4){
     .Portfolio {
         grid-area: Portfolio;
         position: relative;
-        top: 70px;
+        top: 30px;
         justify-self: left;
         /*padding-top:20px;*/
     }
@@ -687,7 +689,7 @@ a:hover span:nth-child(4){
         grid-area: video;
         position: relative;
         left: 0px;
-        top: 70px;
+        top: 30px;
         justify-self: center;
         border-radius: 5px;
     }
@@ -695,6 +697,15 @@ a:hover span:nth-child(4){
         height: 350px;
         padding: 5%;
         border-radius: 5px;
+    }
+    /* Custom the FAQ style */
+    .FAQ{
+        position: relative;
+        justify-self: center;
+        top: 30px;
+    }
+    .accordion {
+        width: 733px;
     }
     /* WEB PAGE LAYOUT /////////////////////////////  */
 }
