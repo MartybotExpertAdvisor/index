@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV/Excel File Processor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #A8D5BA; /* Pastel green background */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2C3E50; /* Dark color for heading */
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #34495E; /* Slightly darker for subheading */
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            border: 2px solid #2C3E50;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #2C3E50;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            background-color: #2C3E50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1A252F;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 0;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2C3E50;
+            text-decoration: none;
+            border: 2px solid #2C3E50;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background-color: rgba(44, 62, 80, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Your File</h1>
+    <p>Upload a file with columns in the format: Kanji, Hiragana, English. Supported formats: CSV, Excel (.xlsx).</p>
+    <input type="file" id="fileInput" accept=".csv,.xlsx">
+    <button id="processButton">Process File</button>
+    <br><br>
+    <a id="downloadFile1" style="display: none;">Download First CSV</a>
+    <br>
+    <a id="downloadFile2" style="display: none;">Download Second CSV</a>
+
+    <script>
+        document.getElementById("processButton").addEventListener("click", function () {
+            const fileInput = document.getElementById("fileInput").files[0];
+            if (!fileInput) {
+                alert("Please upload a file.");
+                return;
+            }
+
+            const fileExtension = fileInput.name.split(".").pop().toLowerCase();
+            if (fileExtension === "csv") {
+                processCSVFile(fileInput);
+            } else if (fileExtension === "xlsx") {
+                processExcelFile(fileInput);
+            } else {
+                alert("Unsupported file format. Please upload a CSV or Excel (.xlsx) file.");
+            }
+        });
+
+        function processCSVFile(file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const data = event.target.result;
+                const rows = data.split("\n").map(row => row.split(","));
+                generateCSVFiles(rows);
+            };
+            reader.readAsText(file);
+        }
+
+        function processExcelFile(file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const data = new Uint8Array(event.target.result);
+                const workbook = XLSX.read(data, { type: "array" });
+                const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                const rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+                generateCSVFiles(rows);
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function generateCSVFiles(rows) {
+            if (rows.length === 0 || rows[0].length < 3) {
+                alert("Invalid file format. The file must have columns: Kanji, Hiragana, English.");
+                return;
+            }
+
+            let csv1 = "Kanji,Hiragana | English\n";
+            let csv2 = "English,Kanji | Hiragana\n";
+
+            rows.forEach(row => {
+                const [kanji, hiragana, english] = row.map(cell => cell?.toString().trim() || "");
+                if (kanji && hiragana && english) {
+                    csv1 += `${kanji},${hiragana} | ${english}\n`;
+                    csv2 += `${english},${kanji} | ${hiragana}\n`;
+                }
+            });
+
+            createDownloadLink(csv1, "Kanji_Hiragana_English.csv", "downloadFile1");
+            createDownloadLink(csv2, "English_Kanji_Hiragana.csv", "downloadFile2");
+        }
+
+        function createDownloadLink(content, fileName, elementId) {
+            const blob = new Blob([content], { type: "text/csv" });
+            const url = URL.createObjectURL(blob);
+            const link = document.getElementById(elementId);
+            link.href = url;
+            link.download = fileName;
+            link.style.display = "inline";
+            link.textContent = `Download ${fileName}`;
+        }
+    </script>
+</body>
+</html>

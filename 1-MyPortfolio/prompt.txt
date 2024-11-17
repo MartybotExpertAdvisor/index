@@ -1,0 +1,21 @@
+1.create a csv file format text, ask for Japanese vocabulary on N4 level, structure is : Japanese word, English word. produce a total of 200 items (japanese word, english word). the result can be use to import a text data in csv file. 
+
+2. then now, i want the japanese be written in kanji format if possible
+
+3. can you combine the 1st and 2nd result into these structures: Kanji, Hiragana, English. It should be good in importing data into csv.
+
+-------------------------------
+converter
+create an html file that will ask for the user to upload either an excel or csv file. the contents of the csv file is in Kanji, hiragana, English word format. Then the html file will create 2 csv files. the format of the newly created csv files will be 
+1. 1st CSV file - (Kanji, Hiragana I English) : notice that the Hiragana and English word is combined but separated only by " |"
+2. 2nd CSV file - (English, Kanji | Hiragana) : notice that the Kanji and Hiragana word is combined but separated only by " |"
+
+These 2 csv files must be able to download by the user.
+
+-----------------------------------
+edit the code so that it can also accept an excel file (.xlsx) from the user. It means the user can upload either .xlsx file or csv file
+
+--------------------
+theme color adjustment
+
+i do not like the green, just revert it back to white, and the back ground color pastel black
