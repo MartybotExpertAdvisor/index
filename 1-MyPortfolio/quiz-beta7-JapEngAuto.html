@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q & A Review</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #2e2e2e; /* Pastel black background */
+      margin: 0;
+    }
+    .quiz-container {
+      text-align: center;
+      background-color: #ffffff; /* White background for the quiz container */
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 420px;
+      min-height: 350px;
+      position: relative;
+      overflow: hidden;
+      color: #333333; /* Dark text color for readability */
+    }
+    h2 {
+      color: #2c3e50;
+      font-size: 26px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: left;
+      color: #333333; /* Dark text color for readability */
+    }
+    .button {
+      background: linear-gradient(135deg, #4CAF50, #2e7d32);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .button:hover {
+      background: linear-gradient(135deg, #45a049, #1b5e20);
+      transform: scale(1.05);
+    }
+    .wrong {
+      background: linear-gradient(135deg, #f44336, #d32f2f);
+    }
+    .wrong:hover {
+      background: linear-gradient(135deg, #e53935, #c62828);
+    }
+    .cancel-button {
+      background: #f44336;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    .results {
+      text-align: left;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333333; /* Dark text color for readability */
+    }
+    .fixed-buttons {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    h6 {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #7f8c8d;
+      margin: 0;
+      font-style: italic;
+    }
+    #csvFile {
+      margin-top: 15px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    #languageSelect {
+      margin-top: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+<div class="quiz-container">
+  <h2>Q & A Review</h2>
+  <input type="file" id="csvFile" accept=".csv" />
+  <br>
+  <select id="languageSelect1">
+    <option value="ja-JP">|日本語</option>
+    <option value="en-US">|English</option>
+  </select>
+  <select id="languageSelect2">
+    <option value="ja-JP">|日本語</option>
+    <option value="en-US">|English</option>
+  </select>
+  <div id="quiz"></div>
+  <div class="results" id="results"></div>
+  <button class="button cancel-button hidden" id="cancelBtn" onclick="cancelQuiz()">Cancel</button>
+  <h6>by: Rizaldy de Guzman</h6>
+</div>
+
+<script>
+  let questions = [];
+  let currentQuestionIndex = 0;
+  let incorrectAnswers = [];
+  let correctAnswersCount = 0;
+  let quizStarted = false;
+  let autoClickTimeout; // Timeout to auto-click buttons
+  let language1 = 'ja-JP'; // Default language is Japanese
+  let language2 = 'ja-JP'; // Default language is Japanese
+
+  const csvFileInput = document.getElementById("csvFile");
+  const cancelBtn = document.getElementById("cancelBtn");
+  const languageSelect1 = document.getElementById("languageSelect1");
+  const languageSelect2 = document.getElementById("languageSelect2");
+
+  csvFileInput.addEventListener("change", handleFileSelect);
+  languageSelect1.addEventListener("change", function() {
+    language1 = this.value;
+  });
+
+  languageSelect2.addEventListener("change", function() {
+    language2 = this.value;
+  });
+
+  function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (file && file.type === "text/csv") {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        parseCSV(e.target.result);
+        shuffleQuestions();
+        showNextQuestion();
+        quizStarted = true;
+        cancelBtn.classList.remove("hidden");
+        csvFileInput.style.display = 'none';
+      };
+      reader.readAsText(file);
+    } else {
+      alert("Please upload a valid CSV file.");
+    }
+  }
+
+  function parseCSV(csvText) {
+    const rows = csvText
+      .split("\n")
+      .map(row => row.split(","))
+      .filter(row => row.length >= 2 && row[0].trim() && row[1].trim());
+
+    questions = rows.map(row => ({
+      question: row[0].trim(),
+      answer: row[1].trim()
+    }));
+  }
+
+  function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+  }
+
+  function showNextQuestion() {
+    clearTimeout(autoClickTimeout); // Clear any pending timeouts
+
+    if (currentQuestionIndex < questions.length) {
+      const currentQuestion = questions[currentQuestionIndex];
+      document.getElementById("quiz").innerHTML = `
+        <div class="question"><strong>Q${currentQuestionIndex + 1}:</strong> ${currentQuestion.question}</div>
+        <div class="fixed-buttons">
+          <button class="button wrong" id="noBtn" onclick="handleAnswer(false)">No</button>
+          <button class="button" id="yesBtn" onclick="handleAnswer(true)">Yes</button>
+          <button class="button hidden" id="nextBtn" onclick="goToNextQuestion()">Next</button>
+        </div>
+        <div id="correctAnswer"></div>
+      `;
+      
+      // Focus on Yes button
+      document.getElementById("yesBtn").focus(); 
+
+      // Read the question aloud
+      const utterance = new SpeechSynthesisUtterance(currentQuestion.question);
+      utterance.lang = language1; // Use selected language
+      speechSynthesis.speak(utterance);
+
+      utterance.onend = () => {
+        // Automatically click "Yes" after 4 seconds
+        autoClickTimeout = setTimeout(() => {
+          document.getElementById("yesBtn").click();
+        }, 4000);
+      };
+    } else {
+      showResults();
+    }
+  }
+
+  function handleAnswer(isCorrect) {
+    clearTimeout(autoClickTimeout); // Stop auto-click for the current question
+
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctAnswer = currentQuestion.answer;
+
+    if (isCorrect) {
+      correctAnswersCount++;
+    } else {
+      incorrectAnswers.push({ question: currentQuestion.question, correctAnswer });
+    }
+
+    // Display correct answer
+    document.getElementById("correctAnswer").innerText = `Correct Answer: ${correctAnswer}`;
+
+    // Read the correct answer aloud in language2 (the second selected language)
+    const utterance = new SpeechSynthesisUtterance(correctAnswer);
+    utterance.lang = language2; // Set the language to language2 for the correct answer
+    speechSynthesis.speak(utterance);
+
+    utterance.onend = () => {
+      // Show "Next" button
+      document.getElementById("yesBtn").classList.add("hidden");
+      document.getElementById("noBtn").classList.add("hidden");
+      document.getElementById("nextBtn").classList.remove("hidden");
+
+      // Automatically click "Next" after 6 seconds
+      autoClickTimeout = setTimeout(() => {
+        document.getElementById("nextBtn").click();
+      }, 6000);
+    };
+  }
+
+  function goToNextQuestion() {
+    currentQuestionIndex++;
+    showNextQuestion();
+  }
+
+  function showResults() {
+    const resultsContainer = document.getElementById("results");
+    resultsContainer.innerHTML = `
+      <h3>Results:</h3>
+      <p>Total Questions: ${questions.length}</p>
+      <p>Correct Answers: ${correctAnswersCount}</p>
+      <p>Incorrect Answers: ${incorrectAnswers.length}</p>
+    `;
+
+    if (incorrectAnswers.length > 0) {
+      resultsContainer.innerHTML += "<h4>Incorrect Answers:</h4>";
+      incorrectAnswers.forEach((item, index) => {
+        resultsContainer.innerHTML += `
+          <p>Q${index + 1}: ${item.question}</p>
+          <p>Correct Answer: ${item.correctAnswer}</p>
+        `;
+      });
+    }
+
+    // Hide the quiz container and show the cancel button
+    cancelBtn.classList.add("hidden");
+    csvFileInput.style.display = 'block'; // Allow file upload again
+  }
+
+  function cancelQuiz() {
+    if (confirm("Are you sure you want to cancel the quiz?")) {
+      window.location.reload(); // Reload the page to reset the quiz
+    }
+  }
+</script>
+</body>
+</html>
